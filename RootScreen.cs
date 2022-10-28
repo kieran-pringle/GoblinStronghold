@@ -8,7 +8,7 @@ namespace SadConsoleGame
     public class RootScreen : ScreenObject
     {
         private ScreenSurface _map;
-        private GameObject _player;
+        private GameObject _controlledObject;
 
         public RootScreen()
         {
@@ -20,10 +20,39 @@ namespace SadConsoleGame
             Children.Add(_map);
             FillBackground(_map);
 
-            _player = new GameObject(
+            _controlledObject = new GameObject(
                 new ColoredGlyph(Color.AnsiWhiteBright, Color.AnsiBlack, 1),
                 new Point(12, 12),
                 _map);
+        }
+
+        public override bool ProcessKeyboard(Keyboard keyboard)
+        {
+            bool handled = false;
+
+            if (keyboard.IsKeyPressed(Keys.Up))
+            {
+                _controlledObject.Move(_controlledObject.Position + Direction.Up, _map);
+                handled = true;
+            }
+            else if (keyboard.IsKeyPressed(Keys.Down))
+            {
+                _controlledObject.Move(_controlledObject.Position + Direction.Down, _map);
+                handled = true;
+            }
+
+            if (keyboard.IsKeyPressed(Keys.Left))
+            {
+                _controlledObject.Move(_controlledObject.Position + Direction.Left, _map);
+                handled = true;
+            }
+            else if (keyboard.IsKeyPressed(Keys.Right))
+            {
+                _controlledObject.Move(_controlledObject.Position + Direction.Right, _map);
+                handled = true;
+            }
+
+            return handled;
         }
 
         private void FillBackground(ScreenSurface screenSurface)

@@ -12,6 +12,8 @@ namespace SadConsoleGame
 
         public ColoredGlyph Appearance { get; private set; }
 
+        private ColoredGlyph _mapAppearance = new ColoredGlyph();
+
         public GameObject(
             ColoredGlyph appearance,
             Point position,
@@ -19,11 +21,19 @@ namespace SadConsoleGame
         {
             Appearance = appearance;
             Position = position;
+
+            hostSurface.Surface[position].CopyAppearanceTo(_mapAppearance);
             DrawGameObject(hostSurface);
         }
 
         public void Move(Point newPosition, IScreenSurface screenSurface)
         {
+            // Restore the old cell
+            _mapAppearance.CopyAppearanceTo(screenSurface.Surface[Position]);
+
+            // Store the map cell of the new position
+            screenSurface.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
+
             Position = newPosition;
             DrawGameObject(screenSurface);
         }
