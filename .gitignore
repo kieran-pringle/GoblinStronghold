@@ -1,0 +1,7 @@
+﻿# output
+*.dll
+obj/
+bin/
+
+# config
+.vs
