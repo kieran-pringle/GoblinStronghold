@@ -11,9 +11,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="GameObject\" />
+    <None Remove="src\" />
+    <None Remove="src\Entity\" />
+    <None Remove="src\Screen\" />
+    <None Remove="res\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GameObject\" />
+    <Folder Include="src\" />
+    <Folder Include="src\Entity\" />
+    <Folder Include="src\Screen\" />
+    <Folder Include="res\" />
   </ItemGroup>
 </Project>
