@@ -16,6 +16,7 @@
     <None Remove="res\1-bit.png" />
     <None Remove="res\1-bit.bmp" />
     <None Remove="Screen\" />
+    <None Remove="res\1-bit.font" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -27,14 +28,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="res\1-bit.font">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="res\1-bit.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="res\1-bit.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\1-bit.font">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

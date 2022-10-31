@@ -1,10 +1,22 @@
 ﻿using System;
+using SadConsole;
+using SadRogue.Primitives;
+using Console = SadConsole.Console;
+
 namespace sadconsoletut.Screen
 {
-    public class StatusScreen
+    public class StatusScreen : SubScreen
     {
-        public StatusScreen()
+        private Color[] _testGradient = new[]{
+            Color.LightGreen,
+            Color.SeaGreen,
+            Color.CornflowerBlue,
+            Color.DarkSlateBlue
+        };
+
+        public StatusScreen(int width, int height) : base(width, height)
         {
+            FillBackground(SubConsole, _testGradient);
         }
     }
 }

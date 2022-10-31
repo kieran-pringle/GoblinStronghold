@@ -1,7 +1,6 @@
 ﻿using System;
 using SadConsole;
 using SadRogue.Primitives;
-using sadconsoletut.Map;
 using Console = SadConsole.Console;
 
 namespace sadconsoletut
@@ -11,8 +10,10 @@ namespace sadconsoletut
 
         static void Main()
         {
+            var baseRes = 6;
             // Setup the engine and create the main window.
-            Game.Create(120, 42);
+            // compensate for 8*16 default font
+            Game.Create(baseRes * 16, baseRes * 9, "res/1-bit.font");
 
             // Hook the start event so we can add consoles to the system.
             Game.Instance.OnStart = Init;
@@ -24,17 +25,11 @@ namespace sadconsoletut
 
         static void Init()
         {
-            // load font
-            var font = SadConsole.Game.Instance.LoadFont("res/1-bit.font");
-            Game.Instance.DefaultFont = font;
-
             Game.Instance.Screen = new RootScreen();
             Game.Instance.Screen.IsFocused = true;
 
             // needed because we have replaced the original screen object
             Game.Instance.DestroyDefaultStartingConsole();
         }
-
-       
     }
 }

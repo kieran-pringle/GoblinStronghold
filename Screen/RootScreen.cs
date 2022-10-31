@@ -2,21 +2,21 @@
 using SadConsole.Input;
 using SadRogue.Primitives;
 using System.Collections.Generic;
+using sadconsoletut.Screen;
 
 namespace sadconsoletut
 {
     public class RootScreen : ScreenObject
     {
-        private readonly Console _stats;
-        private readonly Console _map;
-        private readonly Console _inventory;
-        private readonly Console _logs;
-        private readonly IFont _font;
+        private readonly StatusScreen _status;
+        private readonly MapScreen _map;
+        private readonly InventoryScreen _inventory;
+        private readonly LogScreen _logs;
 
         public RootScreen()
         {
             // compensate for default font size of 16 * 8
-            int fullWidth = Game.Instance.ScreenCellsX / 2;
+            int fullWidth = Game.Instance.ScreenCellsX;
             int fullHeight = Game.Instance.ScreenCellsY;
 
             // right one one quarter for logs
@@ -27,26 +27,26 @@ namespace sadconsoletut
             int inventoryAndStatHeight = fullHeight / 6;
             int mapHeight = fullHeight - (inventoryAndStatHeight * 2);
 
-            _stats = new Console(
+            _status = new StatusScreen(
                 remainingWidth,
                 inventoryAndStatHeight
             );
-            _map = new Console(
+            _map = new MapScreen(
                 remainingWidth,
                 mapHeight 
             );
-            _inventory = new Console(
+            _inventory = new InventoryScreen(
                 remainingWidth,
                 inventoryAndStatHeight
             );
-            _logs = new Console(
+            _logs = new LogScreen(
               logScreenWidth,
               fullHeight
             );
 
             // position screens
             // top left
-            _stats.Position = new Point(0, 0);
+            _status.Position = new Point(0, 0);
             // middle
             _map.Position = new Point(0, inventoryAndStatHeight);
             // bottom
@@ -54,70 +54,19 @@ namespace sadconsoletut
             // right
             _logs.Position = new Point(remainingWidth, 0);
 
-            FillBackground(_stats,
-                new[]{
-                    Color.LightGreen,
-                    Color.SeaGreen,
-                    Color.CornflowerBlue,
-                    Color.DarkSlateBlue
-                }
-            );
-            _stats.Cursor.Move(1, 1).Print("Stats");
+            _status.SubConsole.Cursor.Move(1, 1).Print("Stats");
+            _map.SubConsole.Cursor.Move(1, 1).Print("Map");
+            _inventory.SubConsole.Cursor.Move(1, 1).Print("Inventory");
+            _logs.SubConsole.Cursor.Move(1, 1).Print("Logs");
 
-            FillBackground(_map,
-                new[]{
-                    Color.DarkRed,
-                    Color.OrangeRed,
-                    Color.Goldenrod,
-                    Color.PaleGoldenrod
-                }
-            );
-            _map.Cursor.Move(1, 1).Print("Map");
-
-            FillBackground(_inventory,
-                new[]{
-                    Color.LightSalmon,
-                    Color.Pink,
-                    Color.MediumPurple,
-                    Color.Violet
-                }
-            );
-            _inventory.Cursor.Move(1, 1).Print("Inventory");
-
-            FillBackground(_logs,
-                new[]{
-                    Color.Black,
-                    Color.DarkGray,
-                    Color.LightGray,
-                    Color.White
-                }
-            );
-            _logs.Cursor.Move(1, 1).Print("Logs");
-
-            Children.Add(_stats);
+            Children.Add(_status);
             Children.Add(_map);
             Children.Add(_inventory);
             Children.Add(_logs);
 
-            _map.IsFocused = true;
-        }
-
-        private void FillBackground(ScreenSurface screenSurface, Color[] colors)
-        {
-            var colorStops = new[] { 0f, 0.35f, 0.75f, 1f };
-            var gradient = new Gradient(colors, colorStops);
-
-            Algorithms.GradientFill(
-                screenSurface.FontSize,             // cell size
-                screenSurface.Surface.Area.Center,  // midpoint
-                screenSurface.Surface.Width / 3,    // spread witdth
-                33,                                 // angle degrees
-                screenSurface.Surface.Area,         // coverage area
-                gradient,                           // gradient colours
-                (x, y, color) => {                  // callback for each point
-                    screenSurface.Surface[x, y].Background = color;
-                }
-            );
+            // example of getting named glyph
+            //var decorator = _map.Font.GetDecorator("border-top-right-diagonal", Color.White);
+            //_map.SubConsole.Surface[8, 8].CopyAppearanceFrom(new ColoredGlyph(Color.AnsiMagentaBright, Color.DarkViolet, decorator.Glyph));
         }
     }
 }
