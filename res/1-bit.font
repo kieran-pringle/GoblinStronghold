@@ -1,0 +1,12 @@
+﻿{
+  "$type": "SadConsole.SadFont, SadConsole",
+  "Name": "1-bit_16x16",
+  "FilePath": "1-bit.png",
+  "GlyphHeight": 16,
+  "GlyphPadding": 0,
+  "GlyphWidth": 16,
+  "SolidGlyphIndex": 1,
+  "Columns": 32,
+  "IsSadExtended": false,
+  "UnsupportedGlyphIndex": 63
+}

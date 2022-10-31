@@ -15,11 +15,36 @@
     <None Remove="src\Entity\" />
     <None Remove="src\Screen\" />
     <None Remove="res\" />
+    <None Remove="res\1-bit.font" />
+    <None Remove="res\1-bit.png" />
+    <None Remove="res\1-bit.bmp" />
+    <None Remove="src\Map\" />
+    <None Remove="src\Component\" />
+    <None Remove="src\System\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
     <Folder Include="src\Entity\" />
     <Folder Include="src\Screen\" />
     <Folder Include="res\" />
+    <Folder Include="src\Map\" />
+    <Folder Include="src\Component\" />
+    <Folder Include="src\System\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="src\Screen\RootScreen.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\1-bit.font">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\1-bit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\1-bit.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

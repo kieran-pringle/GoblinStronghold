@@ -22,6 +22,10 @@ namespace SadConsoleGame
 
         static void Init()
         {
+            // load font
+            var font = SadConsole.Game.Instance.LoadFont("res/1-bit.font");
+            Game.Instance.DefaultFont = font;
+
             Game.Instance.Screen = new RootScreen();
             Game.Instance.Screen.IsFocused = true;
 

@@ -11,10 +11,12 @@ namespace SadConsoleGame
         private readonly Console _map;
         private readonly Console _inventory;
         private readonly Console _logs;
+        private readonly IFont _font;
 
         public RootScreen()
         {
-            int fullWidth = Game.Instance.ScreenCellsX;
+            // compensate for default font size of 16 * 8
+            int fullWidth = Game.Instance.ScreenCellsX / 2;
             int fullHeight = Game.Instance.ScreenCellsY;
 
             // right one one quarter for logs
@@ -24,7 +26,6 @@ namespace SadConsoleGame
             // top and bottom quarter for inventory and stats
             int inventoryAndStatHeight = fullHeight / 6;
             int mapHeight = fullHeight - (inventoryAndStatHeight * 2);
-
 
             _stats = new Console(
                 remainingWidth,
@@ -98,8 +99,6 @@ namespace SadConsoleGame
             Children.Add(_inventory);
             Children.Add(_logs);
         }
-
-      
 
         private void FillBackground(ScreenSurface screenSurface, Color[] colors)
         {
