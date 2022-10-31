@@ -3,7 +3,7 @@ using SadConsole.Input;
 using SadRogue.Primitives;
 using System.Collections.Generic;
 
-namespace SadConsoleGame
+namespace sadconsoletut
 {
     public class RootScreen : ScreenObject
     {
@@ -98,6 +98,8 @@ namespace SadConsoleGame
             Children.Add(_map);
             Children.Add(_inventory);
             Children.Add(_logs);
+
+            _map.IsFocused = true;
         }
 
         private void FillBackground(ScreenSurface screenSurface, Color[] colors)

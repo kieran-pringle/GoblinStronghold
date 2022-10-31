@@ -11,28 +11,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="src\" />
-    <None Remove="src\Entity\" />
-    <None Remove="src\Screen\" />
     <None Remove="res\" />
     <None Remove="res\1-bit.font" />
     <None Remove="res\1-bit.png" />
     <None Remove="res\1-bit.bmp" />
-    <None Remove="src\Map\" />
-    <None Remove="src\Component\" />
-    <None Remove="src\System\" />
+    <None Remove="Screen\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\" />
-    <Folder Include="src\Entity\" />
-    <Folder Include="src\Screen\" />
     <Folder Include="res\" />
-    <Folder Include="src\Map\" />
-    <Folder Include="src\Component\" />
-    <Folder Include="src\System\" />
+    <Folder Include="Screen\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="src\Screen\RootScreen.cs">
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>

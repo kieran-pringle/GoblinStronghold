@@ -1,12 +1,14 @@
 ﻿using System;
 using SadConsole;
 using SadRogue.Primitives;
+using sadconsoletut.Map;
 using Console = SadConsole.Console;
 
-namespace SadConsoleGame
+namespace sadconsoletut
 {
     public static class Program
     {
+
         static void Main()
         {
             // Setup the engine and create the main window.
@@ -32,5 +34,7 @@ namespace SadConsoleGame
             // needed because we have replaced the original screen object
             Game.Instance.DestroyDefaultStartingConsole();
         }
+
+       
     }
 }
