@@ -15,6 +15,7 @@ namespace GoblinStronghold
         private readonly InventoryScreen _inventory;
         private readonly LogScreen _logs;
 
+        // TODO: inject map into here, possibly in Program
         public RootScreen()
         {
             // compensate for default font size of 16 * 8
@@ -61,9 +62,6 @@ namespace GoblinStronghold
             Children.Add(_inventory);
             Children.Add(_logs);
 
-            // example of getting named glyph
-            //var decorator = _map.Font.GetDecorator("border-top-right-diagonal", Color.White);
-            //_map.SubConsole.Surface[8, 8].CopyAppearanceFrom(new ColoredGlyph(Color.AnsiMagentaBright, Color.DarkViolet, decorator.Glyph));
         }
 
         public override bool ProcessKeyboard(Keyboard keyboard)

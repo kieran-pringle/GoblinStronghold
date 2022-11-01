@@ -23,7 +23,7 @@ namespace GoblinStronghold.Maps
             Height = height;
 
             // fill with empty cells
-            var points = PointSet.Between(
+            var points = PointSet.RectangleFilled(
                 new Point(0, 0),
                 new Point(width - 1, height - 1));
             foreach (var p in points)
@@ -31,14 +31,26 @@ namespace GoblinStronghold.Maps
                 Contents[p] = new Cell(this, p);
             }
 
-            var middle = new Point(1, 1);
-            points.Remove(middle);
-            foreach (var p in points)
+            var middle = PointSet.RectangleFilled(
+                new Point(1, 1),
+                new Point(Width - 2, Height - 2));
+           
+            foreach (var p in middle)
+            {
+                var c = Contents[p];
+                Contents[p].MoveHere(new Floor());
+            }
+
+            var border = PointSet.RectangleBorder(
+                new Point(0, 0),
+                new Point(Width - 1, Height - 1));
+
+            foreach (var p in border)
             {
                 var c = Contents[p];
                 Contents[p].MoveHere(new Wall());
             }
-            Contents[middle].MoveHere(new Floor());
+
         }
 
         // TODO: method to deal with returning only valid cells, clean out nulls
