@@ -4,6 +4,7 @@ using SadRogue.Primitives;
 using System.Collections.Generic;
 using GoblinStronghold.Screen;
 using System.Diagnostics;
+using GoblinStronghold.Graphics.Drawer;
 
 namespace GoblinStronghold
 {
@@ -63,6 +64,18 @@ namespace GoblinStronghold
             // example of getting named glyph
             //var decorator = _map.Font.GetDecorator("border-top-right-diagonal", Color.White);
             //_map.SubConsole.Surface[8, 8].CopyAppearanceFrom(new ColoredGlyph(Color.AnsiMagentaBright, Color.DarkViolet, decorator.Glyph));
+        }
+
+        public override bool ProcessKeyboard(Keyboard keyboard)
+        {
+            int i = 4;
+            var subConsole = _logs.SubConsole;
+            foreach (AsciiKey k in keyboard.KeysDown)
+            {
+                subConsole.Cursor.Move(1, i).Print(k.Character.ToString());
+                i++;
+            }
+            return true;
         }
     }
 }
