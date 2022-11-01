@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>sadconsoletut</RootNamespace>
-    <AssemblyName>sadconsoletut</AssemblyName>
+    <RootNamespace>GoblinStronghold</RootNamespace>
+    <AssemblyName>GoblinStronghold</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
