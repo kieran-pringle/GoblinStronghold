@@ -31,7 +31,8 @@ namespace GoblinStronghold.Maps
         // Copy it so that it can't be modified
         public Entity[] Entities()
         {
-            return _entities.ToArray();
+            var array = _entities.ToArray();
+            return array;
         }
 
         // Move an entity to this location

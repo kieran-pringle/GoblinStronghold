@@ -51,6 +51,9 @@ namespace GoblinStronghold.Maps
                 Contents[p].MoveHere(new Wall());
             }
 
+            var player = new Player();
+            var cell = Contents[new Point(Width / 2, Height / 2)];
+            cell.MoveHere(player);
         }
 
         // TODO: method to deal with returning only valid cells, clean out nulls
