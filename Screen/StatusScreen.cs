@@ -3,7 +3,7 @@ using SadConsole;
 using SadRogue.Primitives;
 using Console = SadConsole.Console;
 
-namespace sadconsoletut.Screen
+namespace GoblinStronghold.Screen
 {
     public class StatusScreen : SubScreen
     {

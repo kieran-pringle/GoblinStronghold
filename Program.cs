@@ -1,9 +1,10 @@
 ﻿using System;
 using SadConsole;
 using SadRogue.Primitives;
+using GoblinStronghold.Graphics;
 using Console = SadConsole.Console;
 
-namespace sadconsoletut
+namespace GoblinStronghold
 {
     public static class Program
     {
@@ -25,6 +26,7 @@ namespace sadconsoletut
 
         static void Init()
         {
+            TileSet.Load(Game.Instance.DefaultFont);
             Game.Instance.Screen = new RootScreen();
             Game.Instance.Screen.IsFocused = true;
 

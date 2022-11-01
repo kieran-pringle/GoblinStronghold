@@ -2,9 +2,10 @@
 using SadConsole.Input;
 using SadRogue.Primitives;
 using System.Collections.Generic;
-using sadconsoletut.Screen;
+using GoblinStronghold.Screen;
+using System.Diagnostics;
 
-namespace sadconsoletut
+namespace GoblinStronghold
 {
     public class RootScreen : ScreenObject
     {
@@ -12,6 +13,10 @@ namespace sadconsoletut
         private readonly MapScreen _map;
         private readonly InventoryScreen _inventory;
         private readonly LogScreen _logs;
+
+        private readonly List<Console> _controllableConsoles = new List<Console>();
+        private int _currentControlIndex = 0;
+        private Console _currentlyControlled;
 
         public RootScreen()
         {
@@ -33,7 +38,7 @@ namespace sadconsoletut
             );
             _map = new MapScreen(
                 remainingWidth,
-                mapHeight 
+                mapHeight
             );
             _inventory = new InventoryScreen(
                 remainingWidth,
