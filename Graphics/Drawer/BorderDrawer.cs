@@ -3,7 +3,7 @@ using SadConsole;
 using SadRogue.Primitives;
 using GoblinStronghold.Graphics;
 
-namespace GoblinStronghold.Screen.Drawer
+namespace GoblinStronghold.Graphics.Drawer
 {
     public class BorderDrawer
     {
@@ -104,7 +104,7 @@ namespace GoblinStronghold.Screen.Drawer
             cornerBottomRight: "border-bottom-right-loop");
 
 
-        public static void DrawBorder(ICellSurface surface, BorderStyle? border = null)
+        public static void Draw(ICellSurface surface, BorderStyle? border = null)
         {
             if (border == null)
             {

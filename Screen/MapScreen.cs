@@ -1,4 +1,5 @@
 ﻿using System;
+using GoblinStronghold.Screen.Drawer;
 using SadConsole;
 using SadRogue.Primitives;
 using Console = SadConsole.Console;
@@ -16,7 +17,8 @@ namespace GoblinStronghold.Screen
 
         public MapScreen(int width, int height) : base(width, height)
         {
-            FillBackground(SubConsole, _testGradient);
+            SubConsole.Cursor.Move(1, 1).Print("Map");
+            GradientDrawer.Draw(SubConsole, _testGradient);
         }
     }
 }

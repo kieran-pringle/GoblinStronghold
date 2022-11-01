@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>sadconsoletut</RootNamespace>
+    <AssemblyName>sadconsoletut</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,11 +19,13 @@
     <None Remove="Screen\" />
     <None Remove="res\1-bit.font" />
     <None Remove="Graphics\" />
+    <None Remove="Graphics\Drawer\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
     <Folder Include="Screen\" />
     <Folder Include="Graphics\" />
+    <Folder Include="Graphics\Drawer\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">

@@ -59,11 +59,6 @@ namespace GoblinStronghold
             // right
             _logs.Position = new Point(remainingWidth, 0);
 
-            _status.SubConsole.Cursor.Move(1, 1).Print("Stats");
-            _map.SubConsole.Cursor.Move(1, 1).Print("Map");
-            _inventory.SubConsole.Cursor.Move(1, 1).Print("Inventory");
-            _logs.SubConsole.Cursor.Move(1, 1).Print("Logs");
-
             Children.Add(_status);
             Children.Add(_map);
             Children.Add(_inventory);
