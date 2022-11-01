@@ -3,6 +3,7 @@ using SadConsole.Input;
 using SadRogue.Primitives;
 using System.Collections.Generic;
 using GoblinStronghold.Screen;
+using GoblinStronghold.Maps;
 using System.Diagnostics;
 using GoblinStronghold.Graphics.Drawer;
 
@@ -16,7 +17,7 @@ namespace GoblinStronghold
         private readonly LogScreen _logs;
 
         // TODO: inject map into here, possibly in Program
-        public RootScreen()
+        public RootScreen(Map map)
         {
             // compensate for default font size of 16 * 8
             int fullWidth = Game.Instance.ScreenCellsX;
@@ -35,6 +36,7 @@ namespace GoblinStronghold
                 inventoryAndStatHeight
             );
             _map = new MapScreen(
+                map,
                 remainingWidth,
                 mapHeight
             );
