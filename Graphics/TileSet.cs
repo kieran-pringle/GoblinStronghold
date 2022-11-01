@@ -34,7 +34,7 @@ namespace GoblinStronghold.Graphics
             }
             if (background == null)
             {
-                foreground = Color.Black;
+                background = Color.Black;
             }
             if (cellDecorators == null)
             {

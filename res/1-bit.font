@@ -525,6 +525,14 @@
     "border-top-left-diagonal":{
       "Glyph":159,
       "Mirror":0
+    },
+    "floor-basic":{
+        "Glyph": 160,
+        "Mirror": 0
+    },
+    "wall-basic":{
+        "Glyph": 192,
+        "Mirror": 0
     }
   }
 }

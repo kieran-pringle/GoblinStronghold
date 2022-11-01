@@ -1,5 +1,7 @@
 ﻿using System;
+using GoblinStronghold.Graphics;
 using GoblinStronghold.Graphics.Drawer;
+using GoblinStronghold.Maps;
 using SadConsole;
 using SadRogue.Primitives;
 using Console = SadConsole.Console;
@@ -8,17 +10,14 @@ namespace GoblinStronghold.Screen
 {
     public class MapScreen : SubScreen
     {
-        private Color[] _testGradient = new[]{
-            Color.DarkRed,
-            Color.OrangeRed,
-            Color.Goldenrod,
-            Color.PaleGoldenrod
-        };
+        private readonly Map _map;
+        private readonly Camera _camera;
 
         public MapScreen(int width, int height) : base(width, height)
         {
-            SubConsole.Cursor.Move(1, 1).Print("Map");
-            GradientDrawer.Draw(SubConsole, _testGradient);
+            _map = new Map(3, 3);
+            _camera = new Camera(this.SubConsole, _map);
+            _camera.Draw();
         }
     }
 }
