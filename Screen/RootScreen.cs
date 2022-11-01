@@ -68,13 +68,7 @@ namespace GoblinStronghold
 
         public override bool ProcessKeyboard(Keyboard keyboard)
         {
-            int i = 4;
-            var subConsole = _logs.SubConsole;
-            foreach (AsciiKey k in keyboard.KeysDown)
-            {
-                subConsole.Cursor.Move(1, i).Print(k.Character.ToString());
-                i++;
-            }
+            GameManager.MessageBus.Send<Keyboard>(keyboard);
             return true;
         }
     }

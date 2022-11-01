@@ -15,7 +15,6 @@
     <None Remove="res\" />
     <None Remove="res\1-bit.font" />
     <None Remove="res\1-bit.png" />
-    <None Remove="res\1-bit.bmp" />
     <None Remove="Screen\" />
     <None Remove="res\1-bit.font" />
     <None Remove="Graphics\" />
@@ -24,6 +23,7 @@
     <None Remove="Utils\" />
     <None Remove="Utils\Iteration\" />
     <None Remove="Messaging\" />
+    <None Remove="Messaging\Messages\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -34,6 +34,7 @@
     <Folder Include="Utils\" />
     <Folder Include="Utils\Iteration\" />
     <Folder Include="Messaging\" />
+    <Folder Include="Messaging\Messages\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">
@@ -43,9 +44,6 @@
   <ItemGroup>
     <EmbeddedResource Include="res\1-bit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="res\1-bit.bmp">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="res\1-bit.font">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

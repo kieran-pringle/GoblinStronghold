@@ -8,13 +8,13 @@ using GoblinStronghold.Graphics;
 namespace GoblinStronghold.Maps
 {
     // one space in the game map
-    public class Cell : IHasAppearance
+    public class Cell : IHasAppearance 
     {
-        private List<Entity> _entities = new List<Entity>(); // last into space is first out for rendering
-        public Point Position;
-        public Map Map;
+        public Point Position { get; private set; }
+        public Map Map { get; private set; }
+        public ColoredGlyph EmptyAppearance { get; private set; } = TileSet.ColoredGlyph("floor-basic");
 
-        public ColoredGlyph EmptyAppearance = TileSet.ColoredGlyph("floor-basic");
+        private List<Entity> _entities = new List<Entity>();
 
         public Cell(Map map, Point position)
         {
@@ -46,12 +46,58 @@ namespace GoblinStronghold.Maps
                 oldLocation.LeaveHere(entity);
             }
             _entities.Add(entity);
+            entity.Cell = this;
+
+            Map.CellChanged(this);
         }
 
         public void LeaveHere(Entity entity)
         {
             // similarly whatever callbacks can go here
             _entities.Remove(entity);
+            entity.Cell = null;
+
+            Map.CellChanged(this);
+        }
+
+        public Cell North()
+        {
+            return Map[
+                new Point(
+                    this.Position.X,
+                    this.Position.Y - 1
+                )
+            ];
+        }
+
+        public Cell South()
+        {
+            return Map[
+                new Point(
+                    this.Position.X,
+                    this.Position.Y + 1
+                )
+            ];
+        }
+
+        public Cell East()
+        {
+            return Map[
+                new Point(
+                    this.Position.X + 1,
+                    this.Position.Y
+                )
+            ];
+        }
+
+        public Cell West()
+        {
+            return Map[
+                new Point(
+                    this.Position.X - 1,
+                    this.Position.Y
+                )
+            ];
         }
     }
 }

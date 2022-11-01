@@ -21,10 +21,12 @@ namespace GoblinStronghold.Messaging
         public void Send<MessageType>(MessageType message)
         {
             var t = typeof(MessageType);
-            var subscribers = _subscribers[t];
-            foreach (KeyValuePair<object, Action<object>> item in subscribers)
+            if (_subscribers.ContainsKey(t))
             {
-                item.Value(message); 
+                foreach (KeyValuePair<object, Action<object>> item in _subscribers[t])
+                {
+                    item.Value(message);
+                }
             }
         }
 
@@ -39,7 +41,7 @@ namespace GoblinStronghold.Messaging
             }
 
             _subscribers[t].Add(
-                (ISubscriber<object>)subscriber,
+                subscriber,
                 (msg) => subscriber.Handle((MessageType)msg)
             );
         }

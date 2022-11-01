@@ -2,19 +2,34 @@
 using GoblinStronghold.Maps;
 using GoblinStronghold.Messaging;
 using GoblinStronghold.Screen;
+using SadConsole;
 
 namespace GoblinStronghold
 {
-    public class GameManager
+    public static class GameManager
     {
-        private readonly MesssageBus _messsageBus = new MesssageBus();
-        private Map _map;
-        public readonly RootScreen Screen;
+        public static readonly MesssageBus MessageBus = new MesssageBus();
 
-        public GameManager()
+        public static Map Map;
+        public static RootScreen Screen;
+
+        public static void Init()
         {
-            _map = new Map(20, 20);
-            Screen = new RootScreen(_map);
+            Map = new Map(16, 16);
+            Screen = new RootScreen(Map);
+        }
+
+        public static void Update(object sender, GameHost args)
+        {
+            // we can maybe have more than one message bus?
+            // and give each one a prod
+
+            // first: accept input, if we are accepting
+            // then: act
+            // then: sim results
+            // then: draw
+
+            // maybe check a minimum time has passed?
         }
     }
 }

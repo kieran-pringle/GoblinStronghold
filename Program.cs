@@ -27,10 +27,12 @@ namespace GoblinStronghold
         static void Init()
         {
             TileSet.Load(Game.Instance.DefaultFont);
-            var gameManager = new GameManager();
+            GameManager.Init();
 
-            Game.Instance.Screen = gameManager.Screen;
+            Game.Instance.Screen = GameManager.Screen;
             Game.Instance.Screen.IsFocused = true;
+
+            Game.Instance.FrameUpdate += GameManager.Update;
 
             // needed because we have replaced the original screen object
             Game.Instance.DestroyDefaultStartingConsole();
