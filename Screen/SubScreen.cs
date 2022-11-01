@@ -1,7 +1,7 @@
 ﻿using System;
 using SadConsole;
 using SadRogue.Primitives;
-using GoblinStronghold.Screen.Drawer;
+using GoblinStronghold.Graphics.Drawer;
 using Console = SadConsole.Console;
 
 namespace GoblinStronghold.Screen

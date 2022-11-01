@@ -1,4 +1,4 @@
-﻿using GoblinStronghold.Screen.Drawer;
+﻿using GoblinStronghold.Graphics.Drawer;
 using System;
 using SadConsole;
 using SadRogue.Primitives;

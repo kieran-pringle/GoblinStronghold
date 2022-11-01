@@ -14,10 +14,6 @@ namespace GoblinStronghold
         private readonly InventoryScreen _inventory;
         private readonly LogScreen _logs;
 
-        private readonly List<Console> _controllableConsoles = new List<Console>();
-        private int _currentControlIndex = 0;
-        private Console _currentlyControlled;
-
         public RootScreen()
         {
             // compensate for default font size of 16 * 8

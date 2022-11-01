@@ -1,5 +1,5 @@
 ﻿using System;
-using GoblinStronghold.Screen.Drawer;
+using GoblinStronghold.Graphics.Drawer;
 using SadConsole;
 using SadRogue.Primitives;
 using Console = SadConsole.Console;
