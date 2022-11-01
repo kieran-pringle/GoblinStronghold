@@ -17,6 +17,10 @@ namespace GoblinStronghold.Entities
         // has components
 
         // has control brain
+
+        // has subscriptions
+
+        // can be destroyed
     }
 }
 

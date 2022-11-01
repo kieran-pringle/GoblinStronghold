@@ -23,6 +23,7 @@
     <None Remove="Entities\" />
     <None Remove="Utils\" />
     <None Remove="Utils\Iteration\" />
+    <None Remove="Messaging\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -32,6 +33,7 @@
     <Folder Include="Entities\" />
     <Folder Include="Utils\" />
     <Folder Include="Utils\Iteration\" />
+    <Folder Include="Messaging\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">
