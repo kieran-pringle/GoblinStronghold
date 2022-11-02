@@ -1,12 +1,45 @@
 ﻿---
-- collisions:
-    - collision as a component? type object pattern?
-- reading yaml config to build entities
-- palletes:
-    - shading? dark + light maybe warm and cold? encode in an image?
-- global config for switching palletes and keybindings or whatever
-- keyboard control as a stack thing
 - adventureLog:
     - nicer lowercase font
+    - multifonts?
     - how do components interact to make fun and surprising messages?
-- goblins!
+- monsters:
+    - bat
+    - goblins!
+    - health
+    - attacking
+    - ai control
+- animation:
+    - simple two frame animation? by rotating in appearance
+- refactors:
+    - "some sort of generic call back for every component that matches":
+        - if we can implement components as functions ;) oh baby
+        - but we need state? things like health and anatomy that persist
+        - perhaps only ownable components have state
+- yamlEntityConfig:
+    - iterate over folders
+    - some sort of manifest as we will no longer know the class at runtime
+    - look at data-oriented-design?
+    - type object patter?
+- yamlTileSetConfig:
+    - copying it over gets tedious
+    - hand editing that file gets tedious
+    - some config that gives names for next n objects starting at index
+- palletes:
+    - 16 base colours? 32 base colours?
+    - shading? dark + light maybe warm and cold? encode in an image?
+- globalConfig:
+    - palletes
+    - key bindings
+- input:
+    - menus
+    - keyboard control stack in manager 
+- dungonGeneration:
+    - something basic
+    - look at tutorials
+- fieldOfView:
+    - check shadowcasting tutorials
+    - gorogue source
+    - lighting?
+    - monster eyesight?
+    - monster pathfinding
