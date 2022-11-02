@@ -1,0 +1,12 @@
+﻿---
+- collisions:
+    - collision as a component? type object pattern?
+- reading yaml config to build entities
+- palletes:
+    - shading? dark + light maybe warm and cold? encode in an image?
+- global config for switching palletes and keybindings or whatever
+- keyboard control as a stack thing
+- adventureLog:
+    - nicer lowercase font
+    - how do components interact to make fun and surprising messages?
+- goblins!

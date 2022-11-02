@@ -1,12 +1,17 @@
 ﻿using System;
 using SadConsole;
 using System.Collections.Generic;
+using System.Linq;
 using SadRogue.Primitives;
+using GoblinStronghold.Components;
 using GoblinStronghold.Entities;
 using GoblinStronghold.Graphics;
 
 namespace GoblinStronghold.Maps
 {
+    // TODO: some component checker to iterate over everything in this area that
+    // has some component or not? Collisions could be moved to that
+
     // one space in the game map
     public class Cell : IHasAppearance 
     {
@@ -40,6 +45,12 @@ namespace GoblinStronghold.Maps
         {
             // some further logic to check if it can and what happens and to
             // place it correctly
+
+            if(IsCollides(entity))
+            {
+                return; // can't move to this location
+            }
+
             var oldLocation = entity.Cell;
             if (oldLocation != null)
             {
@@ -98,6 +109,22 @@ namespace GoblinStronghold.Maps
                     this.Position.Y
                 )
             ];
+        }
+
+        // check the collision component for all entities,
+        // if even one says no then return true
+        private bool IsCollides(Entity collider)
+        {
+            return _entities
+                // get a list of all collision components
+                .SelectMany((IHasComponents e) => {
+                        return e.ComponentsMatching<CollisionComponent>(
+                            typeof(CollisionComponent));
+                    })
+                // iterate over all
+                .Select(c => c.CollideWith(collider))
+                // return true on first false (which means collision)
+                .Any(b => !b); 
         }
     }
 }
