@@ -1,0 +1,7 @@
+﻿GlyphDefinitions:
+  - Name: player
+    StartingAt: 256
+    Prefix: player
+    Glyphs: [
+        basic
+    ]

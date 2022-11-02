@@ -1,0 +1,7 @@
+﻿GlyphDefinitions:
+  - Name: floors
+    StartingAt: 160
+    Prefix: floor
+    Glyphs: [
+        basic
+    ]

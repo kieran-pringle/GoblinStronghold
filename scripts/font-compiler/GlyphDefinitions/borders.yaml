@@ -1,0 +1,86 @@
+﻿---
+GlyphDefinitions:
+  - Name: borders-simple
+    StartingAt: 128
+    Prefix: border
+    Glyphs: [
+        horizontal,
+        vertical,
+    ]
+  - Name: borders-simple-corners
+    StartingAt: 130
+    Prefix: border
+    Suffix: corner
+    Glyphs: [
+        top-right,
+        bottom-right,
+        top-left,
+        bottom-left,
+    ]
+  - Name: borders-double
+    StartingAt: 134
+    Prefix: border
+    Suffix: double
+    Glyphs: [
+        horizontal, 
+        vertical,
+    ]
+  - Name: borders-double-corners
+    StartingAt: 136
+    Prefix: border
+    Suffix: double-corner
+    Glyphs: [
+        top-right,
+        bottom-right,
+        top-left,
+        bottom-left,
+    ]
+  - Name: borders-offset
+    StartingAt: 140
+    Prefix: border-offset
+    Glyphs: [
+        right,
+        bottom,
+        left,
+        top,
+    ]
+  - Name: borders-offset-inside-corners
+    StartingAt: 144
+    Prefix: border-offset
+    Suffix: inside-corner
+    Glyphs: [
+        top-right,
+        bottom-right,
+        bottom-left,
+        top-left
+    ]
+  - Name: borders-offset-outisde-corners
+    StartingAt: 148
+    Prefix: border-offset
+    Suffix: outside-corner
+    Glyphs: [
+        top-right,
+        bottom-right,
+        bottom-left,
+        top-left
+    ]
+  - Name: borders-loop-corners
+    StartingAt: 152
+    Prefix: border
+    Suffix: loop-corner
+    Glyphs: [
+        top-right,
+        bottom-right,
+        bottom-left,
+        top-left
+    ]
+  - Name: borders-diagonal-corners
+    StartingAt: 156
+    Prefix: border
+    Suffix: diagonal-corner
+    Glyphs: [
+        top-right,
+        bottom-right,
+        bottom-left,
+        top-left
+    ] 

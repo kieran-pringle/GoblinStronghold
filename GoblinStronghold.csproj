@@ -13,10 +13,7 @@
 
   <ItemGroup>
     <None Remove="res\" />
-    <None Remove="res\1-bit.font" />
-    <None Remove="res\1-bit.png" />
     <None Remove="Screen\" />
-    <None Remove="res\1-bit.font" />
     <None Remove="Graphics\" />
     <None Remove="Graphics\Drawer\" />
     <None Remove="Entities\" />
@@ -25,6 +22,11 @@
     <None Remove="Messaging\" />
     <None Remove="Messaging\Messages\" />
     <None Remove="Components\" />
+    <None Remove="scripts\" />
+    <None Remove="scripts\font-config\GlyphDefinitions\" />
+    <None Remove="res\1-bit_16x16.font" />
+    <None Remove="res\1-bit_16x16.png" />
+    <None Remove="res\1-bit_16x16.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -37,6 +39,8 @@
     <Folder Include="Messaging\" />
     <Folder Include="Messaging\Messages\" />
     <Folder Include="Components\" />
+    <Folder Include="scripts\" />
+    <Folder Include="scripts\font-compiler\GlyphDefinitions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">
@@ -44,11 +48,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="res\1-bit.png">
+    <EmbeddedResource Include="res\1-bit_16x16.font">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="res\1-bit.font">
+    <EmbeddedResource Include="res\1-bit_16x16.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="res\1-bit_16x16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

@@ -26,10 +26,10 @@ namespace GoblinStronghold.Graphics.Drawer
                     string bottom = "border-horizontal",
                     string left = "border-vertical",
                     string right = "border-vertical",
-                    string cornerTopLeft = "border-top-left",
-                    string cornerTopRight = "border-top-right",
-                    string cornerBottomLeft = "border-bottom-left",
-                    string cornerBottomRight = "border-bottom-right",
+                    string cornerTopLeft = "border-top-left-corner",
+                    string cornerTopRight = "border-top-right-corner",
+                    string cornerBottomLeft = "border-bottom-left-corner",
+                    string cornerBottomRight = "border-bottom-right-corner",
                     Color? foreground = null,
                     Color? background = null
                 )
@@ -70,38 +70,38 @@ namespace GoblinStronghold.Graphics.Drawer
             bottom: "border-horizontal-double",
             left: "border-vertical-double",
             right: "border-vertical-double",
-            cornerTopLeft: "border-top-left-double",
-            cornerTopRight: "border-top-right-double",
-            cornerBottomLeft: "border-bottom-left-double",
-            cornerBottomRight: "border-bottom-right-double");
-        public static BorderStyle RoundedSmall = new BorderStyle(
+            cornerTopLeft: "border-top-left-double-corner",
+            cornerTopRight: "border-top-right-double-corner",
+            cornerBottomLeft: "border-bottom-left-double-corner",
+            cornerBottomRight: "border-bottom-right-double-corner");
+        public static BorderStyle OffsetSmall = new BorderStyle(
             top: "border-offset-bottom",
             bottom: "border-offset-top",
             left: "border-offset-right",
             right: "border-offset-left",
-            cornerTopLeft: "border-top-left-inside",
-            cornerTopRight: "border-top-right-inside",
-            cornerBottomLeft: "border-bottom-left-inside",
-            cornerBottomRight: "border-bottom-right-inside");
-        public static BorderStyle RoundedLarge = new BorderStyle(
+            cornerTopLeft: "border-offset-top-left-inside-corner",
+            cornerTopRight: "border-offset-top-right-inside-corner",
+            cornerBottomLeft: "border-offset-bottom-left-inside-corner",
+            cornerBottomRight: "border-offset-bottom-right-inside-corner");
+        public static BorderStyle OffsetLarge = new BorderStyle(
             top: "border-offset-top",
             bottom: "border-offset-bottom",
             left: "border-offset-left",
             right: "border-offset-right",
-            cornerTopLeft: "border-top-left-outside",
-            cornerTopRight: "border-top-right-outside",
-            cornerBottomLeft: "border-bottom-left-outside",
-            cornerBottomRight: "border-bottom-right-outside");
+            cornerTopLeft: "border-offset-top-left-outside-corner",
+            cornerTopRight: "border-offset-top-right-outside-corner",
+            cornerBottomLeft: "border-offset-bottom-left-outside-corner",
+            cornerBottomRight: "border-offset-bottom-right-outside-corner");
         public static BorderStyle Diagonal = new BorderStyle(
-            cornerTopLeft: "border-top-left-diagonal",
-            cornerTopRight: "border-top-right-diagonal",
-            cornerBottomLeft: "border-bottom-left-diagonal",
-            cornerBottomRight: "border-bottom-right-diagonal");
+            cornerTopLeft: "border-top-left-diagonal-corner",
+            cornerTopRight: "border-top-right-diagonal-corner",
+            cornerBottomLeft: "border-bottom-left-diagonal-corner",
+            cornerBottomRight: "border-bottom-right-diagonal-corner");
         public static BorderStyle Fancy = new BorderStyle(
-            cornerTopLeft: "border-top-left-loop",
-            cornerTopRight: "border-top-right-loop",
-            cornerBottomLeft: "border-bottom-left-loop",
-            cornerBottomRight: "border-bottom-right-loop");
+            cornerTopLeft: "border-top-left-loop-corner",
+            cornerTopRight: "border-top-right-loop-corner",
+            cornerBottomLeft: "border-bottom-left-loop-corner",
+            cornerBottomRight: "border-bottom-right-loop-corner");
 
 
         public static void Draw(ICellSurface surface, BorderStyle? border = null)

@@ -1,6 +1,5 @@
 ﻿---
 - adventureLog:
-    - nicer lowercase font
     - multifonts?
     - how do components interact to make fun and surprising messages?
 - monsters:
@@ -21,10 +20,6 @@
     - some sort of manifest as we will no longer know the class at runtime
     - look at data-oriented-design?
     - type object patter?
-- yamlTileSetConfig:
-    - copying it over gets tedious
-    - hand editing that file gets tedious
-    - some config that gives names for next n objects starting at index
 - palletes:
     - 16 base colours? 32 base colours?
     - shading? dark + light maybe warm and cold? encode in an image?

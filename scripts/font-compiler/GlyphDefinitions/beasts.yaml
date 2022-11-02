@@ -1,0 +1,9 @@
+﻿GlyphDefinitions:
+  - Name: bat
+    StartingAt: 224
+    Prefix: bat
+    Glyphs: [
+        mid,
+        start,
+        end
+    ]

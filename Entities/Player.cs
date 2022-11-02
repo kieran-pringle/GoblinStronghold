@@ -15,7 +15,7 @@ namespace GoblinStronghold.Entities
 
         public override ColoredGlyph Appearance()
         {
-            return TileSet.ColoredGlyph("@");
+            return TileSet.ColoredGlyph("player-basic");
         }
 
         void ISubscriber<Keyboard>.Handle(Keyboard keyboard)

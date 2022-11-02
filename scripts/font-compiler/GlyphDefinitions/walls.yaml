@@ -1,0 +1,7 @@
+﻿GlyphDefinitions:
+  - Name: walls
+    StartingAt: 192
+    Prefix: wall
+    Glyphs: [
+        basic
+    ]

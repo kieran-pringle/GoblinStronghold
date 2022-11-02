@@ -1,0 +1,8 @@
+﻿---
+GlyphDefinitions:
+  - Name: primitives-boxes
+    StartingAt: 0
+    Glyphs: [
+        blank,
+        filled
+    ]
