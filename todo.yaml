@@ -19,7 +19,8 @@
     - iterate over folders
     - some sort of manifest as we will no longer know the class at runtime
     - look at data-oriented-design?
-    - type object patter?
+    - type object pattern?
+    - some sort of way of defining animations or appearance pools
 - palletes:
     - 16 base colours? 32 base colours?
     - shading? dark + light maybe warm and cold? encode in an image?

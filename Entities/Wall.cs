@@ -8,6 +8,15 @@ namespace GoblinStronghold.Entities
 {
     public class Wall : Entity
     {
+        private ColoredGlyph _setAppearance;
+        private String[] _appearancePool =
+        {
+            "brick-wall-1",
+            "brick-wall-2",
+            "brick-wall-3",
+            "brick-wall-4"
+        };
+
         public Wall()
         {
             AddComponent(CollisionComponent.Impassable);
@@ -15,7 +24,16 @@ namespace GoblinStronghold.Entities
 
         public override ColoredGlyph Appearance()
         {
-            return TileSet.ColoredGlyph("wall-basic");
+            if (_setAppearance == null)
+            {
+                int i = GameManager.Random.Next(0, _appearancePool.Length - 1);
+                string name = _appearancePool[i];
+                ColoredGlyph toSet = TileSet.ColoredGlyph(name);
+                _setAppearance = toSet;
+            }
+           
+            // pick one the first time then stick to it
+            return _setAppearance;
         }
     }
 }

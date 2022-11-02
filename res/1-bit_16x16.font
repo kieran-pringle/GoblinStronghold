@@ -534,6 +534,18 @@
       "Glyph": 160,
       "Mirror": 0
     },
+    "floor-dithered-1": {
+      "Glyph": 161,
+      "Mirror": 0
+    },
+    "floor-dithered-2": {
+      "Glyph": 162,
+      "Mirror": 0
+    },
+    "floor-dithered-3": {
+      "Glyph": 163,
+      "Mirror": 0
+    },
     "player-basic": {
       "Glyph": 256,
       "Mirror": 0
@@ -546,8 +558,20 @@
       "Glyph": 1,
       "Mirror": 0
     },
-    "wall-basic": {
+    "brick-wall-1": {
       "Glyph": 192,
+      "Mirror": 0
+    },
+    "brick-wall-2": {
+      "Glyph": 193,
+      "Mirror": 0
+    },
+    "brick-wall-3": {
+      "Glyph": 194,
+      "Mirror": 0
+    },
+    "brick-wall-4": {
+      "Glyph": 195,
       "Mirror": 0
     }
   }

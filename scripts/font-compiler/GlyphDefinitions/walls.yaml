@@ -1,7 +1,10 @@
 ﻿GlyphDefinitions:
-  - Name: walls
+  - Name: brick-walls
     StartingAt: 192
-    Prefix: wall
+    Prefix: brick-wall
     Glyphs: [
-        basic
+        1,
+        2,
+        3,
+        4
     ]

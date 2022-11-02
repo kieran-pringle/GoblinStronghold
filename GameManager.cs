@@ -9,6 +9,7 @@ namespace GoblinStronghold
     public static class GameManager
     {
         public static readonly MesssageBus MessageBus = new MesssageBus();
+        public static Random Random = new Random();
 
         public static Map Map;
         public static RootScreen Screen;

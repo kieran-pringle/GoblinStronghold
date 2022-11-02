@@ -107,7 +107,7 @@ end
 
 outputPngPath = @outputDir + @fontDefinition["FilePath"]
 indentLog(1, "writing #{outputPngPath}")
-@image.save(@fontDefinition["FilePath"])    
+@image.save(outputPngPath)   
 
 indentLog(0, "")
 indentLog(0, "=== DONE! ===")
