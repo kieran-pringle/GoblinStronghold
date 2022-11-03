@@ -573,6 +573,14 @@
     "brick-wall-4": {
       "Glyph": 195,
       "Mirror": 0
+    },
+    "brick-wall-5": {
+      "Glyph": 196,
+      "Mirror": 0
+    },
+    "brick-wall-6": {
+      "Glyph": 197,
+      "Mirror": 0
     }
   }
 }
