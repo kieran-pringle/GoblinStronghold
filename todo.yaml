@@ -1,39 +1,49 @@
 ﻿---
 - monsters:
     - bat
-    - goblins!
-    - health
     - attacking
+    - health
     - ai control
+    - turns
 - adventureLog:
     - multifonts?
     - how do components interact to make fun and surprising messages?
-- refactors:
-    - "some sort of generic call back for every component that matches":
-        - if we can implement components as functions ;) oh baby
-        - but we need state? things like health and anatomy that persist
-        - perhaps only ownable components have state
+- diceRolling:
+    - parse dice strings
+    - be able to log some of them out? or how good an attack was
 - yamlEntityConfig:
     - iterate over folders
     - some sort of manifest as we will no longer know the class at runtime
     - look at data-oriented-design?
     - type object pattern?
     - some sort of way of defining animations or appearance pools
-- palletes:
-    - 16 base colours? 32 base colours?
-    - shading? dark + light maybe warm and cold? encode in an image?
-- globalConfig:
-    - palletes
-    - key bindings
-- input:
-    - menus
-    - keyboard control stack in manager 
+    - dice roll health?
 - dungonGeneration:
     - something basic
     - look at tutorials
+- input:
+    - menus
+    - keyboard control stack in manager
+    - mouse control?
 - fieldOfView:
     - check shadowcasting tutorials
     - gorogue source
     - lighting?
     - monster eyesight?
     - monster pathfinding
+- globalConfig:
+    - palletes
+    - key bindings
+- palletes:
+    - 16 base colours? 32 base colours?
+    - take background from cell or things on it like water or acid
+    - take foreground from sprite
+    - shading? dark + light maybe warm and cold? encode in an image?
+- equipment:
+    - swords
+    - potions
+- doors:
+    - open and close!
+    - not everyone can open
+    - blocks sight
+- 

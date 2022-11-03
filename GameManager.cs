@@ -73,6 +73,7 @@ namespace GoblinStronghold
                 // Pass on keyboard input
                 MessageBus.Send<KeyEventsMessage>(KeyEventsMessage.From(_keyboardInputBuffer));
                 // AI act?
+                // MessageBus.Send<TakeActions>(TakeActions.Tick);
                 // update the sim
                 MessageBus.Send<UpdateTickMessage>(UpdateTickMessage.Tick);
                 // Draw result
