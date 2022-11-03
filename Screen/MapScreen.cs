@@ -11,14 +11,13 @@ namespace GoblinStronghold.Screen
     public class MapScreen : SubScreen
     {
         private readonly Map _map;
-        private readonly Camera _camera;
+        public readonly Camera _camera;
 
         public MapScreen(Map map, int width, int height) : base(width, height)
         {
             // TODO: inject map and generate elsewhere
             _map = map;
             _camera = new Camera(this.SubConsole, _map);
-            _camera.Draw();
         }
     }
 }

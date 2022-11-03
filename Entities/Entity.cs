@@ -32,9 +32,7 @@ namespace GoblinStronghold.Entities
         }
 
         // has control brain?
-
         // has subscriptions?
-
         // can be destroyed?
     }
 }

@@ -26,14 +26,6 @@ namespace GoblinStronghold
         static void Init()
         {
             GameManager.Init();
-
-            Game.Instance.Screen = GameManager.Screen;
-            Game.Instance.Screen.IsFocused = true;
-
-            Game.Instance.FrameUpdate += GameManager.Update;
-
-            // needed because we have replaced the original screen object
-            Game.Instance.DestroyDefaultStartingConsole();
         }
     }
 }

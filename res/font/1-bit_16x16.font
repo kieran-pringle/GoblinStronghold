@@ -390,15 +390,15 @@
       "Glyph": 122,
       "Mirror": 0
     },
-    "bat-mid": {
+    "bat-1": {
       "Glyph": 224,
       "Mirror": 0
     },
-    "bat-start": {
+    "bat-2": {
       "Glyph": 225,
       "Mirror": 0
     },
-    "bat-end": {
+    "bat-3": {
       "Glyph": 226,
       "Mirror": 0
     },

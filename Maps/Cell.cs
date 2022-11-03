@@ -52,8 +52,6 @@ namespace GoblinStronghold.Maps
             }
             _entities.Add(entity);
             entity.Cell = this;
-
-            Map.CellChanged(this);
         }
 
         public void LeaveHere(Entity entity)
@@ -61,8 +59,6 @@ namespace GoblinStronghold.Maps
             // similarly whatever callbacks can go here
             _entities.Remove(entity);
             entity.Cell = null;
-
-            Map.CellChanged(this);
         }
 
         public Cell North()

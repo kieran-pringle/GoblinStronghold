@@ -49,5 +49,22 @@ namespace GoblinStronghold.Components
             return _fixedApperance;
         }
     }
-}
 
+    public class AnimatedGlyph : GlyphComponent
+    {
+        private List<ColoredGlyph> _frames;
+        private int _currentFrame;
+
+        public AnimatedGlyph(string[] frames)
+        {
+            _frames = frames.Select(s => TileSet.ColoredGlyph(s)).ToList();
+            _currentFrame = GameManager.Random.Next(0, _frames.Count - 1);
+        }
+
+        public override ColoredGlyph Glyph()
+        {
+            _currentFrame = (_currentFrame + 1) % (_frames.Count);
+            return _frames[_currentFrame];
+        }
+    }
+}

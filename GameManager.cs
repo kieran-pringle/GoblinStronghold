@@ -1,39 +1,100 @@
 ﻿using System;
+using System.Diagnostics;
 using GoblinStronghold.Graphics;
+using GoblinStronghold.Input;
 using GoblinStronghold.Maps;
 using GoblinStronghold.Messaging;
+using GoblinStronghold.Messaging.Messages;
 using GoblinStronghold.Screen;
+using GoblinStronghold.Utils;
 using SadConsole;
 
 namespace GoblinStronghold
 {
     public static class GameManager
     {
-        public static readonly MesssageBus MessageBus = new MesssageBus();
-        public static Random Random = new Random();
+        public static readonly int FrameRate = 4;
+        public static readonly int FrameLengthMs = 1000 / FrameRate; 
+        private static readonly Stopwatch _rateLimit = new Stopwatch();
+
+        private static readonly KeyboardInputBuffer _keyboardInputBuffer
+            = new KeyboardInputBuffer(frameDelay: 3, frameLength: FrameLengthMs);
+        public static readonly MesssageBus MessageBus
+            = new MesssageBus();
+        public static Random Random
+            = new Random();
 
         public static Map Map;
         public static RootScreen Screen;
 
         public static void Init()
         {
-            TileSet.Load(Game.Instance.DefaultFont);
-
-            Map = new Map(16, 16);
-            Screen = new RootScreen(Map);
+            LoadTileset();
+            CreateGameObjects();
+            AttachUpdateHandlers();
+            CreateUI();
         }
 
-        public static void Update(object sender, GameHost args)
+
+        private static void LoadTileset()
         {
-            // we can maybe have more than one message bus?
-            // and give each one a prod
+            TileSet.Load(Game.Instance.DefaultFont);
+        }
 
-            // first: accept input, if we are accepting
-            // then: act
-            // then: sim results
-            // then: draw
+        private static void CreateGameObjects()
+        {
+            Map = new Map(16, 16);
+        }
 
-            // maybe check a minimum time has passed?
+        private static void AttachUpdateHandlers()
+        {
+            Game.Instance.FrameUpdate += GameManager.BufferKeyboardInput;
+            Game.Instance.FrameUpdate += GameManager.UpdateGame;
+        }
+
+        private static void CreateUI()
+        {
+            Screen = new RootScreen(Map);
+
+            Game.Instance.Screen = GameManager.Screen;
+            Game.Instance.Screen.IsFocused = true;
+
+            Game.Instance.DestroyDefaultStartingConsole();
+
+            _rateLimit.Start();
+        }
+
+
+        private static void UpdateGame(object sender, GameHost args)
+        {
+            // limit our simulation and rendering
+            if (IsFramePassed())
+            {
+                // Pass on keyboard input
+                MessageBus.Send<KeyEventsMessage>(KeyEventsMessage.From(_keyboardInputBuffer));
+                // AI act?
+                // update the sim
+                MessageBus.Send<UpdateTickMessage>(UpdateTickMessage.Tick);
+                // Draw result
+                MessageBus.Send<RenderTickMessage>(RenderTickMessage.Tick);
+            }
+        }
+
+        private static void BufferKeyboardInput(object sender, GameHost args)
+        {
+            _keyboardInputBuffer.Add(
+                args.GetKeyboardState().GetPressedKeys(),
+                args.DrawFrameDelta);
+        }
+
+    private static bool IsFramePassed()
+        {
+            if(_rateLimit.ElapsedMilliseconds > 1000 / FrameRate)
+            {
+                _rateLimit.Restart();
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -3,7 +3,7 @@
     StartingAt: 224
     Prefix: bat
     Glyphs: [
-        mid,
-        start,
-        end
+        1,
+        2,
+        3
     ]

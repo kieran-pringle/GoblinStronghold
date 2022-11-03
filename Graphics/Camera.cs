@@ -8,12 +8,12 @@ using GoblinStronghold.Messaging;
 using GoblinStronghold.Messaging.Messages;
 using GoblinStronghold.Entities;
 using GoblinStronghold.Components;
-
+using GoblinStronghold.Utils;
 
 namespace GoblinStronghold.Graphics
 {
     // shows part of a map
-    public class Camera : ISubscriber<MapChanged>
+    public class Camera : ISubscriber<RenderTickMessage>
     {
         private readonly ScreenSurface _surface;
         private readonly Map _map;
@@ -25,11 +25,16 @@ namespace GoblinStronghold.Graphics
             _map = map;
             // default centre to player position somehow (pass arg)
 
-            // register handler
-            GameManager.MessageBus.Register(this);
+            // register handler for rendering
+            GameManager.MessageBus.Register<RenderTickMessage>(this);
         }
 
-        public void Draw()
+        public void Handle(RenderTickMessage _)
+        {
+            Render();
+        }
+
+        public void Render()
         {
             // TODO: Cut a slice of map according to position of camera with point set
             // TODO: Only rerender the bare minimum
@@ -52,12 +57,6 @@ namespace GoblinStronghold.Graphics
             }
 
             _surface.IsDirty = true;
-        }
-
-        public void Handle(MapChanged message)
-        {
-            if (message.Map.Equals(_map))
-                Draw();
         }
 
         private void CopyGlyphTo(GlyphComponent hasGlyph, Point point)

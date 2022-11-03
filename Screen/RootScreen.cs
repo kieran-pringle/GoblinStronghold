@@ -6,13 +6,15 @@ using GoblinStronghold.Screen;
 using GoblinStronghold.Maps;
 using System.Diagnostics;
 using GoblinStronghold.Graphics.Drawer;
+using GoblinStronghold.Utils;
+using System;
 
 namespace GoblinStronghold
 {
     public class RootScreen : ScreenObject
     {
         private readonly StatusScreen _status;
-        private readonly MapScreen _map;
+        public readonly MapScreen _map;
         private readonly InventoryScreen _inventory;
         private readonly LogScreen _logs;
 
@@ -63,7 +65,6 @@ namespace GoblinStronghold
             Children.Add(_map);
             Children.Add(_inventory);
             Children.Add(_logs);
-
         }
 
         public override bool ProcessKeyboard(Keyboard keyboard)

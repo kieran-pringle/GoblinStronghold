@@ -4,10 +4,11 @@ using SadConsole.Input;
 using GoblinStronghold.Components;
 using GoblinStronghold.Graphics;
 using GoblinStronghold.Messaging;
+using GoblinStronghold.Messaging.Messages;
 
 namespace GoblinStronghold.Entities
 {
-    public class Player : Entity, ISubscriber<Keyboard>
+    public class Player : Entity, ISubscriber<KeyEventsMessage>
     {
         public Player()
         {
@@ -15,21 +16,21 @@ namespace GoblinStronghold.Entities
             AddComponent(new FixedGlyph("player-basic"));
         }
 
-        void ISubscriber<Keyboard>.Handle(Keyboard keyboard)
+        void ISubscriber<KeyEventsMessage>.Handle(KeyEventsMessage keyEvents)
         {
-            if (keyboard.IsKeyPressed(Keys.Up))
+            if (keyEvents.IsKeyPressed(Keys.Up))
             {
                 this.Cell.North().MoveHere(this);
             }
-            if (keyboard.IsKeyPressed(Keys.Down))
+            if (keyEvents.IsKeyPressed(Keys.Down))
             {
                 this.Cell.South().MoveHere(this);
             }
-            if (keyboard.IsKeyPressed(Keys.Left))
+            if (keyEvents.IsKeyPressed(Keys.Left))
             {
                 this.Cell.West().MoveHere(this);
             }
-            if (keyboard.IsKeyPressed(Keys.Right))
+            if (keyEvents.IsKeyPressed(Keys.Right))
             {
                 this.Cell.East().MoveHere(this);
             }

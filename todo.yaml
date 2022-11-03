@@ -1,15 +1,13 @@
 ﻿---
-- adventureLog:
-    - multifonts?
-    - how do components interact to make fun and surprising messages?
 - monsters:
     - bat
     - goblins!
     - health
     - attacking
     - ai control
-- animation:
-    - simple two frame animation? by rotating in appearance
+- adventureLog:
+    - multifonts?
+    - how do components interact to make fun and surprising messages?
 - refactors:
     - "some sort of generic call back for every component that matches":
         - if we can implement components as functions ;) oh baby

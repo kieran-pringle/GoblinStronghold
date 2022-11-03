@@ -11,6 +11,8 @@ using GoblinStronghold.Graphics;
 
 namespace GoblinStronghold.Maps
 {
+
+    // TODO: method to deal with returning only valid cells, clean out nulls
     public class Map : Dictionary<Point, Cell>
     {
         public readonly int Width;
@@ -56,16 +58,12 @@ namespace GoblinStronghold.Maps
             }
 
             var player = new Player();
-            var cell = this[new Point(Width / 2, Height / 2)];
-            cell.MoveHere(player);
-        }
+            var playerCell = this[new Point(Width / 2, Height / 2)];
+            playerCell.MoveHere(player);
 
-        // TODO: method to deal with returning only valid cells, clean out nulls
-
-        // TODO: smarter version of this message that can bundle a set of cells to redraw
-        public void CellChanged(Cell cell)
-        {
-            GameManager.MessageBus.Send(new MapChanged(this));
+            var bat = new Bat();
+            var batCell = this[new Point(2, 2)];
+            batCell.MoveHere(bat);
         }
     }
 }
