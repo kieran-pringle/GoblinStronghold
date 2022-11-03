@@ -7,6 +7,7 @@
     <AssemblyName>GoblinStronghold</AssemblyName>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
   <ItemGroup>
     <PackageReference Include="SadConsole.Host.MonoGame" Version="9.2.0" />
   </ItemGroup>
@@ -24,9 +25,12 @@
     <None Remove="Components\" />
     <None Remove="scripts\" />
     <None Remove="scripts\font-config\GlyphDefinitions\" />
-    <None Remove="res\1-bit_16x16.font" />
-    <None Remove="res\1-bit_16x16.png" />
-    <None Remove="res\1-bit_16x16.png" />
+    <None Remove="Components\DrawableComponent.ce" />
+    <None Remove="res\font\" />
+    <None Remove="res\font\1-bit_16x16.font" />
+    <None Remove="res\font\1-bit_16x16.png" />
+    <None Remove="res\font\GlyphDefinitions\" />
+    <None Remove="scripts\font-compiler\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -40,7 +44,9 @@
     <Folder Include="Messaging\Messages\" />
     <Folder Include="Components\" />
     <Folder Include="scripts\" />
-    <Folder Include="scripts\font-compiler\GlyphDefinitions\" />
+    <Folder Include="res\font\" />
+    <Folder Include="res\font\GlyphDefinitions\" />
+    <Folder Include="scripts\font-compiler\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">
@@ -48,7 +54,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="res\1-bit_16x16.font">
+    <EmbeddedResource Include="res\font\1-bit_16x16.font">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -61,7 +67,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="res\1-bit_16x16.png">
+    <Content Include="res\font\1-bit_16x16.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

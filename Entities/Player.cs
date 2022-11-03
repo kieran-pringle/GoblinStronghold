@@ -1,6 +1,7 @@
 ﻿using System;
 using SadConsole;
 using SadConsole.Input;
+using GoblinStronghold.Components;
 using GoblinStronghold.Graphics;
 using GoblinStronghold.Messaging;
 
@@ -11,11 +12,7 @@ namespace GoblinStronghold.Entities
         public Player()
         {
             GameManager.MessageBus.Register(this);
-        }
-
-        public override ColoredGlyph Appearance()
-        {
-            return TileSet.ColoredGlyph("player-basic");
+            AddComponent(new FixedGlyph("player-basic"));
         }
 
         void ISubscriber<Keyboard>.Handle(Keyboard keyboard)

@@ -3,8 +3,12 @@
     StartingAt: 192
     Prefix: brick-wall
     Glyphs: [
+        large,
         1,
         2,
         3,
-        4
+        4,
+        5,
+        6,
+        7
     ]

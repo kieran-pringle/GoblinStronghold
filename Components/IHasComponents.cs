@@ -12,7 +12,8 @@ namespace GoblinStronghold.Components
 
         public bool RemoveComponent(IComponent component);
 
-        public IEnumerable<T> ComponentsMatching<T>(Type t) where T : IComponent
+        // passed type needs to be the same as T
+        public IList<T> ComponentsMatching<T>(Type t) where T : IComponent
         {
             return AllComponents().Where(c => {
                 var cType = c.GetType();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using SadConsole;
 using SadRogue.Primitives;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using GoblinStronghold.Maps;
 using GoblinStronghold.Messaging;
 using GoblinStronghold.Messaging.Messages;
 using GoblinStronghold.Entities;
+using GoblinStronghold.Components;
 
 
 namespace GoblinStronghold.Graphics
@@ -30,21 +32,22 @@ namespace GoblinStronghold.Graphics
         public void Draw()
         {
             // TODO: Cut a slice of map according to position of camera with point set
+            // TODO: Only rerender the bare minimum
             foreach (var item in _map)
             {
                 Point point = item.Key;
                 Cell cell = item.Value;
-                Entity[] entities = cell.Entities();
+                IList<GlyphComponent> drawableComponents = cell
+                    .AllComponentsHere<GlyphComponent>(typeof(GlyphComponent));
 
-                if (entities.Length == 0)
+                if (drawableComponents.Count() == 0)
                 {
-                    CopyGlyphTo(cell, point);
-                    
+                    continue;
                 }
                 else
                 {
                     // top element, assuming it is the most appropriate
-                    CopyGlyphTo(entities[^1], point);
+                    CopyGlyphTo(drawableComponents[^1], point);
                 }
             }
 
@@ -57,10 +60,10 @@ namespace GoblinStronghold.Graphics
                 Draw();
         }
 
-        private void CopyGlyphTo(IHasAppearance drawable, Point point)
+        private void CopyGlyphTo(GlyphComponent hasGlyph, Point point)
         {
             _surface.Surface[point.X, point.Y]
-                .CopyAppearanceFrom(drawable.Appearance());
+                .CopyAppearanceFrom(hasGlyph.Glyph());
         }
     }
 }

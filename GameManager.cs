@@ -1,4 +1,5 @@
 ﻿using System;
+using GoblinStronghold.Graphics;
 using GoblinStronghold.Maps;
 using GoblinStronghold.Messaging;
 using GoblinStronghold.Screen;
@@ -16,6 +17,8 @@ namespace GoblinStronghold
 
         public static void Init()
         {
+            TileSet.Load(Game.Instance.DefaultFont);
+
             Map = new Map(16, 16);
             Screen = new RootScreen(Map);
         }

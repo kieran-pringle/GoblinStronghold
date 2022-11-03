@@ -1,27 +1,36 @@
-﻿require 'yaml'
+﻿#!/usr/bin/env ruby
+
+require 'yaml'
 require 'json'
 require 'chunky_png'
 
-# ======
-# util methods
-# ======
-@parsedFiles = Hash.new
-@baseFile = "./base.yaml"
-@files = Dir["GlyphDefinitions/*.yaml"]
-@rawPng = "../../res/1-bit_16x16_raw.png"
-@outputDir = "../../res/"
 
 @logLevel = 2
 
-unless @rawPng
-    raise "Missing argument for png file"
-end
+@baseFile = "./1-bit_16x16.yaml"
+@rawPng = "./1-bit_16x16_raw.png"
+@outputDir = "./"
 
 def indentLog(indent, msg)
     puts (" "*indent*2) + msg unless indent > @logLevel
 end
 
-indentLog(0, "=== reading files===")
+indentLog(0, "=== checking dir ===")
+unless (File.file?(@baseFile))
+    if (File.directory?("res"))
+        subdir = "res/font"
+        indentLog(1, "looks like we are at root, switching to '#{subdir}'")
+        Dir.chdir(subdir)
+    else
+        raise "Can't find font. Working dir was #{Dir.pwd}"
+    end
+end
+
+@files = Dir["GlyphDefinitions/*.yaml"]
+
+@parsedFiles = Hash.new
+indentLog(0, "")
+indentLog(0, "=== reading files ===")
 @files.each do |f|
     indentLog(1,"Parsing #{f}")
     @parsedFiles[File.basename(f)] = YAML.load_file(f)

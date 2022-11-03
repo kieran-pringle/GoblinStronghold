@@ -1,4 +1,5 @@
 ﻿using System;
+using GoblinStronghold.Components;
 using GoblinStronghold.Graphics;
 using GoblinStronghold.Maps;
 using SadConsole;
@@ -7,10 +8,18 @@ namespace GoblinStronghold.Entities
 {
     public class Floor : Entity
     {
-        public override ColoredGlyph Appearance()
+        public Floor()
         {
-            var toReturn = TileSet.ColoredGlyph("floor-basic");
-            return toReturn;
+            AddComponent(new RandomisedGlyph(
+                    new string[]
+                    {
+                        "blank",
+                        "floor-dithered-1",
+                        "floor-dithered-2",
+                        "floor-dithered-3"
+                    }
+                )
+            );
         }
     }
 }

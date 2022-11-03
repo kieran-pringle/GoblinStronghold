@@ -13,7 +13,7 @@ namespace GoblinStronghold.Maps
     // has some component or not? Collisions could be moved to that
 
     // one space in the game map
-    public class Cell : IHasAppearance 
+    public class Cell 
     {
         public Point Position { get; private set; }
         public Map Map { get; private set; }
@@ -25,12 +25,6 @@ namespace GoblinStronghold.Maps
         {
             Map = map;
             Position = position;
-        }
-
-        // should only be used if cell is completely empty
-        public ColoredGlyph Appearance()
-        {
-            return EmptyAppearance;
         }
 
         // Copy it so that it can't be modified
@@ -115,16 +109,19 @@ namespace GoblinStronghold.Maps
         // if even one says no then return true
         private bool IsCollides(Entity collider)
         {
-            return _entities
-                // get a list of all collision components
-                .SelectMany((IHasComponents e) => {
-                        return e.ComponentsMatching<CollisionComponent>(
-                            typeof(CollisionComponent));
-                    })
+            return AllComponentsHere<CollisionComponent>(typeof(CollisionComponent))
                 // iterate over all
                 .Select(c => c.CollideWith(collider))
                 // return true on first false (which means collision)
                 .Any(b => !b); 
         }
-    }
+
+        // get all components on all entities matching the type at this location
+        public IList<T> AllComponentsHere<T>(Type t) where T : IComponent
+        {
+            return _entities
+                .SelectMany(e => ((IHasComponents)e).ComponentsMatching<T>(t))
+                .ToList(); 
+        }
+}
 }

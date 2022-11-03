@@ -558,28 +558,36 @@
       "Glyph": 1,
       "Mirror": 0
     },
-    "brick-wall-1": {
+    "brick-wall-large": {
       "Glyph": 192,
       "Mirror": 0
     },
-    "brick-wall-2": {
+    "brick-wall-1": {
       "Glyph": 193,
       "Mirror": 0
     },
-    "brick-wall-3": {
+    "brick-wall-2": {
       "Glyph": 194,
       "Mirror": 0
     },
-    "brick-wall-4": {
+    "brick-wall-3": {
       "Glyph": 195,
       "Mirror": 0
     },
-    "brick-wall-5": {
+    "brick-wall-4": {
       "Glyph": 196,
       "Mirror": 0
     },
-    "brick-wall-6": {
+    "brick-wall-5": {
       "Glyph": 197,
+      "Mirror": 0
+    },
+    "brick-wall-6": {
+      "Glyph": 198,
+      "Mirror": 0
+    },
+    "brick-wall-7": {
+      "Glyph": 199,
       "Mirror": 0
     }
   }

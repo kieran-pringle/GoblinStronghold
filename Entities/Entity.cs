@@ -8,7 +8,7 @@ using GoblinStronghold.Maps;
 
 namespace GoblinStronghold.Entities
 {
-    public abstract class Entity : IHasAppearance, IHasComponents
+    public abstract class Entity : IHasComponents
     {
         // position
         public Cell Cell;
@@ -25,9 +25,6 @@ namespace GoblinStronghold.Entities
         {
             return Components.Remove(component);
         }
-
-        // has appearance
-        public abstract ColoredGlyph Appearance();
 
         public IEnumerable<IComponent> AllComponents()
         {
