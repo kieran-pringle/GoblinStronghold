@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoblinStronghold", "GoblinStronghold.csproj", "{D73B83F9-9E99-491A-ACE7-1C138C55FEC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoblinStronghold.Tests", "..\GoblinStrongholdTests\GoblinStronghold.Tests.csproj", "{1CB9E4D6-79DC-423C-93EA-937F6BFECBDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D73B83F9-9E99-491A-ACE7-1C138C55FEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73B83F9-9E99-491A-ACE7-1C138C55FEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73B83F9-9E99-491A-ACE7-1C138C55FEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73B83F9-9E99-491A-ACE7-1C138C55FEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB9E4D6-79DC-423C-93EA-937F6BFECBDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB9E4D6-79DC-423C-93EA-937F6BFECBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB9E4D6-79DC-423C-93EA-937F6BFECBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB9E4D6-79DC-423C-93EA-937F6BFECBDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0998B2D5-84C0-479B-A3E7-47E0FB446EE3}
+	EndGlobalSection
+EndGlobal

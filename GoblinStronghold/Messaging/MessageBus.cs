@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace GoblinStronghold.Messaging
 {
-    public class MesssageBus
+    public class MessageBus
     {
         private readonly Dictionary<
                 Type,
@@ -13,7 +13,7 @@ namespace GoblinStronghold.Messaging
                     Action<object>>>
             _subscribers;
 
-        public MesssageBus()
+        public MessageBus()
         {
             _subscribers = new Dictionary<Type, Dictionary<object, Action<object>>>();
         }

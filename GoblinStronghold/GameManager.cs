@@ -19,8 +19,8 @@ namespace GoblinStronghold
 
         private static readonly KeyboardInputBuffer _keyboardInputBuffer
             = new KeyboardInputBuffer(frameDelay: 3, frameLength: FrameLengthMs);
-        public static readonly MesssageBus MessageBus
-            = new MesssageBus();
+        public static readonly MessageBus MessageBus
+            = new MessageBus();
         public static Random Random
             = new Random();
 
