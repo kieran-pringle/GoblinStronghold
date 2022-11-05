@@ -26,8 +26,10 @@
     <None Remove="Messaging\" />
     <None Remove="NUnit.ConsoleRunner" />
     <None Remove="Moq" />
+    <None Remove="ECS\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Messaging\" />
+    <Folder Include="ECS\" />
   </ItemGroup>
 </Project>
