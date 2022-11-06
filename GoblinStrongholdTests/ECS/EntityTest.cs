@@ -1,4 +1,5 @@
 ﻿using System;
+using Moq;
 using GoblinStronghold.ECS;
 
 namespace GoblinStronghold.Tests.ECS
@@ -7,48 +8,82 @@ namespace GoblinStronghold.Tests.ECS
     public class EntityTest
     {
         private Context _ctx;
-
-        private class BasicComponent<T> : Component
-        {
-            internal T _data;
-
-            internal BasicComponent(T data)
-            {
-                _data = data;
-            }
-        }
+        private Entity _entity;
 
         [SetUp]
         public void SetUp()
         {
-            _ctx = Context.Instance();
-            _ctx.Clear();
+            _ctx = new Context();
+            _entity = _ctx.CreateEntity();
         }
 
         [Test]
         public void EntityTest_CreateAnEntityFromAContext()
         {
-            Entity e = _ctx.CreateEntity();
-
-            Assert.That(e, Is.Not.Null);
+            Assert.That(_entity, Is.Not.Null);
         }
 
         [Test]
-        public void EntityTest_AddComponentsToEntityAndRetrieve()
+        public void EntityTest_AddComponentToEntityAndRetrieve()
         {
-            Entity e = _ctx.CreateEntity();
+            String str = "data";
+            _entity.With(str);
 
-            BasicComponent<string> strComponent = new BasicComponent<string>("data");
-            BasicComponent<int> intComponent = new BasicComponent<int>(0);
+            var strComponent = _entity.Component<String>();
 
-            e.With(strComponent).With(intComponent);
+            Assert.That(strComponent, Is.Not.Null,
+                "we should be able to retrieve the string added");
+            Assert.That(strComponent.Data, Is.Not.Null,
+                "the retrieved component should not have empty data");
+            Assert.That(strComponent.Data, Is.EqualTo(str));
+        }
 
-            var returnedStrComponent = e.Component<BasicComponent<string>>();
-            var returnedIntComponent = e.Component<BasicComponent<int>>();
+        [Test]
+        public void EntityTest_AddMultipleComponentsAndRetrieve()
+        {
+            (string, string) strStrTup = ("a", "tuple");
+            (string, int) strIntTup = ("number is", 12);
 
-            Assert.That(returnedStrComponent, Is.EqualTo(strComponent));
-            Assert.That(returnedIntComponent, Is.EqualTo(intComponent));
+            _entity.With(strStrTup).With(strIntTup);
+
+            var tup1Component = _entity.Component<(string, string)>();
+            var tup2Component = _entity.Component<(string, int)>();
+
+            Assert.That(
+                _entity.Component<(string, string)>().Data,
+                Is.EqualTo(strStrTup));
+            Assert.That(
+                _entity.Component<(string, int)>().Data,
+                Is.EqualTo(strIntTup));
+        }
+
+        [Test]
+        public void EntityTest_AddingNewComponentOfSameTypeShouldOverrwrite()
+        {
+            (string, string) tup1 = ("number", "1");
+            (string, string) tup2 = ("a", "replacement");
+
+            _entity.With(tup1);
+
+            Assert.That(
+                _entity.Component<(string, string)>().Data,
+                Is.EqualTo(tup1));
+
+            _entity.With(tup2);
+
+            Assert.That(
+               _entity.Component<(string, string)>().Data,
+               Is.EqualTo(tup2));
+        }
+
+        [Test]
+        public void EntityTest_ReturnsNullIfNoMatchingComponent()
+        {
+            // add nothing, there are no components
+
+            var component = _entity.Component<object>();
+
+            Assert.That(component, Is.Null);
         }
     }
 }
-

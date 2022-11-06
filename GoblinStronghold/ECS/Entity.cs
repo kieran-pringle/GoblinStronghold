@@ -2,35 +2,51 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using GoblinStronghold.ECS;
+
 using static GoblinStronghold.ECS.Context;
 
 namespace GoblinStronghold.ECS
 {
     // represents an entity in the context system
     // but also an entry point into registering and deregistering components
-    public sealed class Entity
+    public sealed class Entity : IDestroyable
     {
         internal readonly ContextID _id;
-        // reference back to the context
-        private readonly Context _ctx;
 
-        internal Entity(Context ctx, ContextID id)
+        internal Entity(ContextID id)
         {
-            _ctx = ctx;
             _id = id;
         }
 
-        public Entity With<C>(C component) where C : Component
+        public Entity With<T>(T component)
         {
-            _ctx.AddComponentTo(component, this);
+            ParentContext().AddComponentTo(component, this);
             return this;
         }
 
-        [return: MaybeNull]
-        public C Component<C>() where C : Component
+        // TODO: optional type for this? Might be much nicer way to handle the
+        // frequent nullness - can pass a function to do if the value is there
+        // would be nicer to not even expose component and then we could maybe
+        // restrict access further
+        [return: MaybeNull] // if component doesn't exist
+        public Component<T> Component<T>()
         {
-            throw new NotImplementedException("Yet to do");
+            return AllComponents().Get<T>();
+        }
+
+        public ComponentStore AllComponents()
+        {
+            return ParentContext().ComponentStoreFor(this);
+        }
+
+        public void Destroy()
+        {
+            ParentContext().Destroy(this);
+        }
+
+        private Context ParentContext()
+        {
+            return _id._ctx;
         }
     }
 }
-

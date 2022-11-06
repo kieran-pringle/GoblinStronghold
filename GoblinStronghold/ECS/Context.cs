@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.ComponentModel;
+using System.Collections;
 
 namespace GoblinStronghold.ECS
 {
@@ -25,15 +25,16 @@ namespace GoblinStronghold.ECS
 
     public class Context
     {
-        // no way to make this a path dependent type, so we treat context as
-        // a singleton so we don't have to manage multiple sources
+        // link back to parent context
         internal readonly struct ContextID : IComparable<ContextID>
         {
             private readonly int _id;
+            internal readonly Context _ctx;
 
             // only the Context can create thes
-            private ContextID(int id)
+            internal ContextID(Context ctx, int id)
             {
+                _ctx = ctx;
                 _id = id;
             }
 
@@ -44,7 +45,7 @@ namespace GoblinStronghold.ECS
 
             internal ContextID Next()
             {
-                return new ContextID(id: (this._id + 1));
+                return new ContextID(_ctx, id: (this._id + 1));
             }
         }
 
@@ -57,76 +58,124 @@ namespace GoblinStronghold.ECS
         // the same index
         private ContextID _currentId;
 
-        private IDictionary<Entity, IDictionary<Type, Component>> _entityTable;
+        // all components on an entity
+        private IDictionary<
+            Entity,
+            IDictionary<Type, object>
+        > _entityToComponentTypeToComponent;
 
-        private IDictionary<Type, IDictionary<Component, Entity>> _componentTable;
+        // all components of a type
+        private IDictionary<
+            Type,
+            IEnumerable<object>
+        > _componentTypeToComponents;
 
-        // Tables of all the systems
-        // private Dictionary<Type, object> _onLoadSystems;
+        // components contain a link back to entity internally
 
-        public static Context Instance()
+        public Context()
         {
-            return s_instance;
+            _entityToComponentTypeToComponent = new Dictionary<
+               Entity,
+               IDictionary<Type, object>>();
+            _componentTypeToComponents = new Dictionary<
+                Type,
+                IEnumerable<object>>();
+
+            _currentId = new ContextID(this, 0);
         }
 
+        // TODO: call destroy on everything to eliminate references so they
+        // can get garbage collected
         public void Clear()
         {
-            // wipe everything
+
         }
 
         public Entity CreateEntity()
         {
             var entity = new Entity(
-                ctx: this,
                 id: NextID()
             );
 
-            throw new NotImplementedException("We need to insert entity into table");
+            // init join table
+            _entityToComponentTypeToComponent[entity] =
+                new Dictionary<Type, object>();
 
             return entity;
         }
 
-        public void Destroy(Entity e)
+        public void Destroy(Entity entity)
         {
-            throw new NotImplementedException("Need to remove entity and destroy its components");
+            // destroy all components
+            foreach (
+                KeyValuePair<Type, object> typeToComponent
+                in AllComponentsOnEntityMutable(entity))
+            {
+                ((IDestroyable) typeToComponent.Value).Destroy();
+            }
+
+            _entityToComponentTypeToComponent.Remove(entity);
         }
 
-        public void Destroy(Component c)
+        public void Destroy<T>(Component<T> component)
         {
-            throw new NotImplementedException("Need to remove component from parent");
+            AllComponentsOfTypeMutable<T>().Remove(component);
+            AllComponentsOnEntityMutable(component._owner).Remove(typeof(T));
+            component._owner = null;
         }
 
-        internal void AddComponentTo(Component c, Entity e)
+        // read-only accessor for all components
+        public IEnumerable<Component<T>> AllComponents<T>()
         {
-            throw new NotImplementedException();
+            return (IEnumerable<Component<T>>)_componentTypeToComponents[typeof(T)];
         }
 
-        // private constructor
-        private Context()
+        internal void AddComponentTo<T>(T component, Entity entity)
         {
-            _entityHasComponents = new SortedDictionary<
-                ContextID,
-                ISet<Type>
-            >();
-            _componentToEntityJoins = new SortedDictionary<
-                Type,
-                IDictionary<
-                    ContextID,
-                    IList<ContextID>
-                >
-            >();
-            // remember, we can't sort over type!
-            _componentTables = new Dictionary<
-                Type,
-                IDictionary<
-                    ContextID,
-                    Component>
-            >();
-            _entityTable = new SortedDictionary<
-                ContextID,
-                Entity
-            >();
+            if (component == null)
+            {
+                return; // noop
+            }
+
+            // check if such a component exists yet
+            var componentType = typeof(T);
+            var currentComponents = AllComponentsOnEntityMutable(entity);
+            if (currentComponents.ContainsKey(componentType))
+            {
+                Destroy(GetComponentFromEntity<T>(entity));
+            }
+
+            var newComponent = new Component<T>(
+                NextID(),
+                entity,
+                component);
+
+            AllComponentsOfTypeMutable<T>().Add(newComponent);
+            currentComponents[componentType] = newComponent;
         }
+
+        internal Component<T> GetComponentFromEntity<T>(Entity entity)
+        {
+            var components = AllComponentsOnEntityMutable(entity);
+            var componentType = typeof(T);
+            if (components.ContainsKey(componentType))
+            {
+                return (Component<T>)AllComponentsOnEntityMutable(entity)[typeof(T)];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        internal ComponentStore ComponentStoreFor(Entity entity)
+        {
+            return new ComponentStore(_entityToComponentTypeToComponent[entity]);
+        }
+
+        // *******
+        // private
+        // *******
 
         private ContextID NextID()
         {
@@ -138,7 +187,43 @@ namespace GoblinStronghold.ECS
         // ------------------------------------------
         // get or create accessors to sub-collections
         // ------------------------------------------
+        private IDictionary<Type, object> AllComponentsOnEntityMutable(Entity entity)
+        {
+            IDictionary<Type, object> entityTypeToComponent;
 
+            if (_entityToComponentTypeToComponent.ContainsKey(entity))
+            {
+                entityTypeToComponent = _entityToComponentTypeToComponent[entity]; 
+            }
+            else
+            {
+                entityTypeToComponent = new Dictionary<Type, object>();
+                _entityToComponentTypeToComponent[entity] = entityTypeToComponent;
+            }
+
+            return entityTypeToComponent;
+        }
+
+        private ISet<Component<T>> AllComponentsOfTypeMutable<T>()
+        {
+            ISet<Component<T>> components;
+            Type componentType = typeof(T);
+
+            if(_componentTypeToComponents.ContainsKey(componentType))
+            {
+                // safe cast
+                components =
+                    (ISet<Component<T>>)_componentTypeToComponents[componentType];
+            }
+            else
+            {
+                components = new HashSet<Component<T>>();
+                _componentTypeToComponents[componentType] =
+                    (IEnumerable<object>) components;
+            }
+
+            return components;
+        }
     }
 }
 
