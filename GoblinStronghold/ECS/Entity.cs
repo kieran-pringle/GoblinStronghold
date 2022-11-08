@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Functional.Option;
 using GoblinStronghold.ECS;
 
 using static GoblinStronghold.ECS.Context;
@@ -20,7 +21,7 @@ namespace GoblinStronghold.ECS
 
         public Entity With<T>(T component)
         {
-            ParentContext().AddComponentTo(component, this);
+            ParentContext().AddComponentTo<T>(component, this);
             return this;
         }
 
@@ -29,7 +30,7 @@ namespace GoblinStronghold.ECS
         // would be nicer to not even expose component and then we could maybe
         // restrict access further
         [return: MaybeNull] // if component doesn't exist
-        public Component<T> Component<T>()
+        public Option<Component<T>> Component<T>()
         {
             return AllComponents().Get<T>();
         }

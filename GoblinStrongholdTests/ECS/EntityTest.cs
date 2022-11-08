@@ -1,6 +1,7 @@
 ﻿using System;
 using Moq;
 using GoblinStronghold.ECS;
+using Newtonsoft.Json.Linq;
 
 namespace GoblinStronghold.Tests.ECS
 {
@@ -31,11 +32,10 @@ namespace GoblinStronghold.Tests.ECS
 
             var strComponent = _entity.Component<String>();
 
-            Assert.That(strComponent, Is.Not.Null,
+            Assert.That(strComponent.HasValue,
                 "we should be able to retrieve the string added");
-            Assert.That(strComponent.Data, Is.Not.Null,
+            Assert.That(strComponent.Value.Content, Is.EqualTo(str),
                 "the retrieved component should not have empty data");
-            Assert.That(strComponent.Data, Is.EqualTo(str));
         }
 
         [Test]
@@ -49,12 +49,11 @@ namespace GoblinStronghold.Tests.ECS
             var tup1Component = _entity.Component<(string, string)>();
             var tup2Component = _entity.Component<(string, int)>();
 
-            Assert.That(
-                _entity.Component<(string, string)>().Data,
-                Is.EqualTo(strStrTup));
-            Assert.That(
-                _entity.Component<(string, int)>().Data,
-                Is.EqualTo(strIntTup));
+            Assert.That(tup1Component.HasValue, "tup1Component should have a value");
+            Assert.That(tup2Component.HasValue, "tup2Compoent should have a value");
+
+            Assert.That(tup1Component.Value.Content, Is.EqualTo(strStrTup));
+            Assert.That(tup2Component.Value.Content, Is.EqualTo(strIntTup));
         }
 
         [Test]
@@ -66,13 +65,12 @@ namespace GoblinStronghold.Tests.ECS
             _entity.With(tup1);
 
             Assert.That(
-                _entity.Component<(string, string)>().Data,
+                _entity.Component<(string, string)>().Value.Content,
                 Is.EqualTo(tup1));
 
             _entity.With(tup2);
-
             Assert.That(
-               _entity.Component<(string, string)>().Data,
+               _entity.Component<(string, string)>().Value.Content,
                Is.EqualTo(tup2));
         }
 
@@ -83,7 +81,7 @@ namespace GoblinStronghold.Tests.ECS
 
             var component = _entity.Component<object>();
 
-            Assert.That(component, Is.Null);
+            Assert.That(component.HasValue, Is.False, "There should be no component matching");
         }
     }
 }

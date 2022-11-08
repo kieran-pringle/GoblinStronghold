@@ -13,6 +13,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   <ItemGroup>
     <PackageReference Include="SadConsole.Host.MonoGame" Version="9.2.0" />
+    <PackageReference Include="Option" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,11 @@
     <None Remove="res\font\GlyphDefinitions\" />
     <None Remove="Input\" />
     <None Remove="ECS\" />
+    <None Remove="ECS\Components\" />
+    <None Remove="ECS\Systems\" />
+    <None Remove="ECS\Entities\" />
+    <None Remove="ECS\Components\Graphics\" />
+    <None Remove="Option" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -50,6 +56,10 @@
     <Folder Include="res\font\GlyphDefinitions\" />
     <Folder Include="Input\" />
     <Folder Include="ECS\" />
+    <Folder Include="ECS\Components\" />
+    <Folder Include="ECS\Systems\" />
+    <Folder Include="ECS\Entities\" />
+    <Folder Include="ECS\Components\Graphics\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">

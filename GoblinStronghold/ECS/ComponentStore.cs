@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Functional.Option;
 
 namespace GoblinStronghold.ECS
 {
@@ -15,7 +16,7 @@ namespace GoblinStronghold.ECS
         }
 
         [return: MaybeNull] // if component doesn't exist
-        public Component<T> Get<T>()
+        public Option<Component<T>> Get<T>()
         {
             var type = typeof(T);
             if (_store.ContainsKey(type))
@@ -24,7 +25,7 @@ namespace GoblinStronghold.ECS
             }
             else
             {
-                return null;
+                return Option<Component<T>>.None;
             }
         }
     }

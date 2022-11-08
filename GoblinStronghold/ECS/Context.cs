@@ -23,7 +23,7 @@ namespace GoblinStronghold.ECS
 
     // https://stackoverflow.com/questions/13177882/implementing-a-database-how-to-get-started
 
-    public class Context
+    public class Context : IContext
     {
         // link back to parent context
         internal readonly struct ContextID : IComparable<ContextID>
@@ -120,8 +120,8 @@ namespace GoblinStronghold.ECS
         public void Destroy<T>(Component<T> component)
         {
             AllComponentsOfTypeMutable<T>().Remove(component);
-            AllComponentsOnEntityMutable(component._owner).Remove(typeof(T));
-            component._owner = null;
+            AllComponentsOnEntityMutable(component.Owner).Remove(typeof(T));
+            component.Owner = null;
         }
 
         // read-only access to all components
@@ -170,7 +170,15 @@ namespace GoblinStronghold.ECS
 
         internal ComponentStore ComponentStoreFor(Entity entity)
         {
-            return new ComponentStore(_entityToComponentTypeToComponent[entity]);
+            if (_entityToComponentTypeToComponent.ContainsKey(entity))
+            {
+                return new ComponentStore(_entityToComponentTypeToComponent[entity]);
+            }
+            else
+            {
+                throw new KeyNotFoundException("There is no such entity in" +
+                    "this context. It may have been destroyed");
+            }
         }
 
         // *******
