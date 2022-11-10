@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GoblinStronghold.Messaging;
 
 namespace GoblinStronghold.ECS
 {
@@ -34,6 +35,41 @@ namespace GoblinStronghold.ECS
         public IEnumerable<Component<T>> AllComponents<T>();
 
         /**
+         * <summary>
+         *      Get all <c>Entities</c> with a given <c>Component</c>
+         * </summary>
+         */
+        public IEnumerable<Entity> AllEntitiesWith<T>();
+
+        /**
+         * <summary>
+         *      Get all <c>Entities</c> with a <c>Component</c> matching a 
+         *      given choice function
+         * </summary>
+         */
+        public IEnumerable<Entity> AllEntitiesWithMatching<T>(Func<T, bool> matcher);
+
+        /**
+         * <summary>
+         *      Register a <c>System</c> to the context
+         * </summary>
+         */
+        public void Register<T>(System<T> system);
+
+        /**
+         * <summary>
+         *      Unregister a <c>System</c> from the context
+         * </summary>
+         */
+        public void Unregister<T>(System<T> system);
+
+        /**
+         * Sends a message to all registered <c>System<c/> instances for that
+         * message
+         */
+        public void Send<T>(T message);
+
+        /**
         * <summary>
         *      Destroy an <c>Entity</c> managed by this context. This will also
         *      destroy all components owned by the entity.
@@ -50,4 +86,3 @@ namespace GoblinStronghold.ECS
         public void Destroy<T>(Component<T> component);
     }
 }
-

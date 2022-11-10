@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections;
+using GoblinStronghold.Messaging;
 
 namespace GoblinStronghold.ECS
 {
@@ -58,6 +59,8 @@ namespace GoblinStronghold.ECS
         // the same index
         private ContextID _currentId;
 
+        private MessageBus _bus;
+
         // all components on an entity
         private IDictionary<
             Entity,
@@ -81,6 +84,8 @@ namespace GoblinStronghold.ECS
                 Type,
                 IEnumerable<object>>();
 
+            _bus = new MessageBus();
+
             _currentId = new ContextID(this, 0);
         }
 
@@ -88,7 +93,7 @@ namespace GoblinStronghold.ECS
         // can get garbage collected
         public void Clear()
         {
-
+            throw new NotImplementedException("We don't have a clear command yet");
         }
 
         public Entity CreateEntity()
@@ -129,6 +134,22 @@ namespace GoblinStronghold.ECS
         {
             return (IEnumerable<Component<T>>)_componentTypeToComponents[typeof(T)];
         }
+
+        public IEnumerable<Entity> AllEntitiesWith<T>()
+        {
+            return _entityToComponentTypeToComponent
+                .Where(kv => kv.Value.ContainsKey(typeof(T)))
+                .Select(kv => kv.Key);
+        }
+
+        public IEnumerable<Entity> AllEntitiesWithMatching<T>(Func<T, bool> matcher)
+        {
+            throw new NotImplementedException();
+        }
+
+        // ********************************************************
+        // internal
+        // ********************************************************
 
         internal void AddComponentTo<T>(T component, Entity entity)
         {
@@ -181,9 +202,26 @@ namespace GoblinStronghold.ECS
             }
         }
 
-        // *******
+        public void Register<T>(System<T> system)
+        {
+            _bus.Register(system);
+            system._context = this;
+        }
+
+        public void Unregister<T>(System<T> system)
+        {
+            _bus.UnRegister(system);
+            system._context = null;
+        }
+
+        public void Send<T>(T message)
+        {
+            _bus.Send(message);
+        }
+
+        // ********************************************************
         // private
-        // *******
+        // ********************************************************
 
         private ContextID NextID()
         {
@@ -234,4 +272,3 @@ namespace GoblinStronghold.ECS
         }
     }
 }
-

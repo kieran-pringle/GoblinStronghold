@@ -1,11 +1,21 @@
 ﻿---
+keepInMind:
+    - Performance doesn't matter until it matters.
+    - Have the performance be shit and do things this simple way
+    - Excessive iterations to find objects
+    - Just query through the context
+---
 - ecs:
-    - ignore query/insert pref for now
-    - we should be able to destroy things and have them garbage collected
-    - finally extract out to an IContext and document there
-    - Unwrapping component to an option type would be nice
-    - https://www.nuget.org/packages/Optional/5.0.0-alpha
-    - the .SomeNotNull() method seems to be what we want
+    - basicSystems:
+        - camera:
+            - rewrite existing map and camera
+            - tiles as entites with positon and tile
+            - creatures as entities with position
+            - camera maybe has three passes? For now just tiles
+        - movement:
+            - https://www.reddit.com/r/roguelikedev/comments/fvi1vx/ecs_help_how_to_avoid_close_coupling_of_systems/
+            - https://www.reddit.com/r/roguelikedev/comments/63zhv7/entitycomponentsystem_pattern_in_turnbased/
+            - https://www.reddit.com/r/roguelikedev/comments/6xbo23/need_some_help_figuring_out_a_movement_system_ecs/
 - monsters:
     - bat
     - attacking

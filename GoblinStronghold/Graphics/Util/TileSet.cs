@@ -2,7 +2,7 @@
 using SadConsole;
 using SadRogue.Primitives;
 
-namespace GoblinStronghold.Graphics
+namespace GoblinStronghold.Graphics.Util
 {
     public static class TileSet
     {

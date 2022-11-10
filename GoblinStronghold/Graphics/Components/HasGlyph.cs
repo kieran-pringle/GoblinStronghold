@@ -1,7 +1,7 @@
 ﻿using System;
 using SadConsole;
 
-namespace GoblinStronghold.ECS.Components.Graphics
+namespace GoblinStronghold.Graphics.Components
 {
     /**
     *   <summary>
@@ -12,11 +12,16 @@ namespace GoblinStronghold.ECS.Components.Graphics
     */
     public class HasGlyph
     {
-        public IGlyphProvider GlyphProvider;
+        private IGlyphProvider _glyphProvider;
+
+        public HasGlyph(IGlyphProvider provider)
+        {
+            _glyphProvider = provider;
+        }
 
         public ColoredGlyph Glyph()
         {
-            return GlyphProvider.Glyph();
+            return _glyphProvider.Glyph();
         }
     }
 }

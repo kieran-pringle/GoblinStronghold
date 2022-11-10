@@ -1,9 +1,10 @@
 ﻿using System;
 using SadConsole;
 using SadRogue.Primitives;
+using Functional.Option;
 using GoblinStronghold.Graphics;
 
-namespace GoblinStronghold.Graphics.Drawer
+namespace GoblinStronghold.Graphics.Util.Drawer
 {
     public class BorderDrawer
     {
@@ -104,13 +105,13 @@ namespace GoblinStronghold.Graphics.Drawer
             cornerBottomRight: "border-bottom-right-loop-corner");
 
 
-        public static void Draw(ICellSurface surface, BorderStyle? border = null)
+        public static void Draw(ICellSurface surface)
         {
-            if (border == null)
-            {
-                border = Default;
-            }
+            Draw(surface, BorderDrawer.Default);
+        }
 
+        public static void Draw(ICellSurface surface, BorderStyle border)
+        {
             // draw top and bottom
             for (int x = 1; x < surface.Width - 1; x++)
             {

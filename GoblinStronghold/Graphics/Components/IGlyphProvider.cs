@@ -1,7 +1,7 @@
 ﻿using System;
 using SadConsole;
 
-namespace GoblinStronghold.ECS.Components.Graphics
+namespace GoblinStronghold.Graphics.Components
 {
     public interface IGlyphProvider
     {

@@ -20,46 +20,44 @@
     <None Remove="res\" />
     <None Remove="Screen\" />
     <None Remove="Graphics\" />
-    <None Remove="Graphics\Drawer\" />
-    <None Remove="Entities\" />
-    <None Remove="Utils\" />
-    <None Remove="Utils\Iteration\" />
     <None Remove="Messaging\" />
-    <None Remove="Messaging\Messages\" />
-    <None Remove="Components\" />
     <None Remove="scripts\font-config\GlyphDefinitions\" />
     <None Remove="Components\DrawableComponent.ce" />
     <None Remove="res\font\" />
     <None Remove="res\font\1-bit_16x16.font" />
     <None Remove="res\font\1-bit_16x16.png" />
     <None Remove="res\font\GlyphDefinitions\" />
-    <None Remove="Input\" />
     <None Remove="ECS\" />
-    <None Remove="ECS\Components\" />
-    <None Remove="ECS\Systems\" />
-    <None Remove="ECS\Entities\" />
-    <None Remove="ECS\Components\Graphics\" />
     <None Remove="Option" />
+    <None Remove="Graphics\Components\" />
+    <None Remove="Graphics\Systems\" />
+    <None Remove="Physics\" />
+    <None Remove="Physics\Components\" />
+    <None Remove="Graphics\Util\Drawer\" />
+    <None Remove="Graphics\Messages\" />
+    <None Remove="Debug\" />
+    <None Remove="Maps\" />
+    <None Remove="Maps\Components\" />
+    <None Remove="Maps\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
     <Folder Include="Screen\" />
     <Folder Include="Graphics\" />
-    <Folder Include="Graphics\Drawer\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Utils\" />
-    <Folder Include="Utils\Iteration\" />
     <Folder Include="Messaging\" />
-    <Folder Include="Messaging\Messages\" />
-    <Folder Include="Components\" />
     <Folder Include="res\font\" />
     <Folder Include="res\font\GlyphDefinitions\" />
-    <Folder Include="Input\" />
     <Folder Include="ECS\" />
-    <Folder Include="ECS\Components\" />
-    <Folder Include="ECS\Systems\" />
-    <Folder Include="ECS\Entities\" />
-    <Folder Include="ECS\Components\Graphics\" />
+    <Folder Include="Graphics\Components\" />
+    <Folder Include="Graphics\Systems\" />
+    <Folder Include="Physics\" />
+    <Folder Include="Physics\Components\" />
+    <Folder Include="Graphics\Util\Drawer\" />
+    <Folder Include="Graphics\Messages\" />
+    <Folder Include="Debug\" />
+    <Folder Include="Maps\" />
+    <Folder Include="Maps\Components\" />
+    <Folder Include="Maps\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">

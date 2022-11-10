@@ -2,7 +2,7 @@
 using SadConsole;
 using SadRogue.Primitives;
 
-namespace GoblinStronghold.Graphics.Drawer
+namespace GoblinStronghold.Graphics.Util.Drawer
 {
     public static class GradientDrawer
     {
