@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using SadConsole;
+using GoblinStronghold.Creatures.Components;
 using GoblinStronghold.ECS;
+using GoblinStronghold.Maps.Components;
 using GoblinStronghold.Messaging;
 using GoblinStronghold.Graphics.Messages;
 
@@ -15,14 +17,15 @@ namespace GoblinStronghold.Graphics.Systems
 
         // child cameras to iterate over to control draw order.
         // first in first called
-        private List<Camera> _children = new List<Camera>();
+        private List<ICamera> _children = new List<ICamera>();
 
         protected ICellSurface _surface;
 
         public CameraSystem(ICellSurface surface)
         {
-            _children.Add(new TileCamera(surface));
-            _children.Add(new CreatureCamera(surface));
+            _surface = surface;
+            _children.Add(new Camera<Tile>(surface));
+            _children.Add(new Camera<Creature>(surface));
         }
 
         public virtual void Render()
@@ -31,6 +34,9 @@ namespace GoblinStronghold.Graphics.Systems
             {
                 camera.Render(Context());
             }
+
+            // TODO: set this by the cameras if they update anything
+            _surface.IsDirty = true;
         }
 
         public override void Handle(Render message)

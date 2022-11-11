@@ -30,7 +30,7 @@ namespace GoblinStronghold.Maps.Entities
 
             return context
                 .CreateEntity()
-                .With(new Tile())
+                .With(Tile.Instance)
                 .With(new HasGlyph(glyph));
         }
     }

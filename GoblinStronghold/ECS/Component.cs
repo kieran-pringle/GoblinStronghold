@@ -4,7 +4,10 @@ using GoblinStronghold.ECS;
 using static GoblinStronghold.ECS.Context;
 
 namespace GoblinStronghold.ECS
-{ 
+{
+    /**
+     *  The wrapper class containing the data in a component and its link back to its parent entity.
+     */
     public sealed class Component<T> : IDestroyable
     {
         // internally managed ID, if null, this object is not managed by
@@ -38,4 +41,3 @@ namespace GoblinStronghold.ECS
         }
     }
 }
-

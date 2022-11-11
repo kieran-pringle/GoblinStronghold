@@ -40,6 +40,12 @@
     <None Remove="Maps\Components\" />
     <None Remove="Maps\Entities\" />
     <None Remove="res\pallette\" />
+    <None Remove="Creatures\" />
+    <None Remove="Creatures\Entities\" />
+    <None Remove="Creatures\Components\" />
+    <None Remove="Time\" />
+    <None Remove="Time\Messages\" />
+    <None Remove="Time\Systems\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -60,6 +66,12 @@
     <Folder Include="Maps\Components\" />
     <Folder Include="Maps\Entities\" />
     <Folder Include="res\pallette\" />
+    <Folder Include="Creatures\" />
+    <Folder Include="Creatures\Entities\" />
+    <Folder Include="Creatures\Components\" />
+    <Folder Include="Time\" />
+    <Folder Include="Time\Messages\" />
+    <Folder Include="Time\Systems\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">

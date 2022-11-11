@@ -23,12 +23,12 @@ namespace GoblinStronghold.Maps.Entities
         public static Entity NewIn(IContext context)
         {
             var glyph = new RandomGlyph(_glyphPool);
-            glyph.Background = Palette.Black;
+            glyph.Background = Palette.BlackBright;
             glyph.Foreground = Palette.White;
 
             return context
                 .CreateEntity()
-                .With(new Tile())
+                .With(Tile.Instance)
                 .With(new HasGlyph(glyph));
         }
     }

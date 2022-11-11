@@ -1,4 +1,5 @@
 ﻿using System;
+using GoblinStronghold.Creatures.Entities;
 using GoblinStronghold.ECS;
 using GoblinStronghold.Graphics.Systems;
 using GoblinStronghold.Maps.Entities;
@@ -29,6 +30,8 @@ namespace GoblinStronghold.Debug
                     }
                 }
             }
+
+            Player.NewIn(context).With(new Position(3,3));
         }
     }
 }
