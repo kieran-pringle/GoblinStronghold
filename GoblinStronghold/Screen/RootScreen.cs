@@ -8,6 +8,7 @@ using GoblinStronghold.Graphics.Util.Drawer;
 using System;
 
 using Console = SadConsole.Console;
+using Palette = GoblinStronghold.Graphics.Util.Palette;
 
 namespace GoblinStronghold
 {
@@ -43,6 +44,9 @@ namespace GoblinStronghold
 
             Children.Add(_map);
             Children.Add(_logs);
+
+            _map.DefaultBackground = Palette.Black;
+            _logs.DefaultBackground = Palette.Black;
         }
 
         public Console MapConsole()

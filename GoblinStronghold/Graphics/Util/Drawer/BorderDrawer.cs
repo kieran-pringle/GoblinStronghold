@@ -37,11 +37,11 @@ namespace GoblinStronghold.Graphics.Util.Drawer
             {
                 if (foreground == null)
                 {
-                    foreground = Color.White;
+                    foreground = Palette.WhiteBright;
                 }
                 if (background == null)
                 {
-                    background = Color.Black;
+                    background = Palette.Black;
                 }
                 Foreground = (Color)foreground;
                 Background = (Color)background;

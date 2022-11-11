@@ -1,24 +1,18 @@
 ﻿using GoblinStronghold.Graphics.Util.Drawer;
 using System;
 using SadConsole;
+using SadConsole.Effects;
 using SadRogue.Primitives;
 using Console = SadConsole.Console;
+using Palette = GoblinStronghold.Graphics.Util.Palette;
 
 namespace GoblinStronghold.Screen
 {
     public class LogScreen : SubScreen
     {
-        private Color[] _testGradient = new[]{
-            Color.Violet,
-            Color.BlueViolet,
-            Color.MediumPurple,
-            Color.Indigo
-        };
-
         public LogScreen(int width, int height) : base(width, height)
         {
-            SubConsole.Cursor.Move(1, 1).Print("Log");
-            GradientDrawer.Draw(SubConsole, _testGradient);
+            SubConsole.Print(0, 0, "Log", Palette.WhiteBright);
         }
     }
 }
