@@ -39,6 +39,7 @@
     <None Remove="Maps\" />
     <None Remove="Maps\Components\" />
     <None Remove="Maps\Entities\" />
+    <None Remove="res\pallette\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -58,6 +59,7 @@
     <Folder Include="Maps\" />
     <Folder Include="Maps\Components\" />
     <Folder Include="Maps\Entities\" />
+    <Folder Include="res\pallette\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">

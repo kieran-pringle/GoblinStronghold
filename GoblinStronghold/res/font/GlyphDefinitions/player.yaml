@@ -1,7 +1,43 @@
 ﻿GlyphDefinitions:
-  - Name: player
+  - Name: player-basic
     StartingAt: 256
-    Prefix: player
+    Prefix: player-basic
     Glyphs: [
-        basic
+        1,
+        2
+    ]
+  - Name: sword-and-shield
+    StartingAt: 258
+    Prefix: sword-and-shield
+    Glyphs: [
+        1,
+        2
+    ]
+  - Name: gunslinger
+    StartingAt: 260
+    Prefix: gunslinger
+    Glyphs: [
+        1,
+        2
+    ]
+  - Name: bandito
+    StartingAt: 262
+    Prefix: bandito
+    Glyphs: [
+        1,
+        2
+    ]
+  - Name: miner
+    StartingAt: 264
+    Prefix: miner
+    Glyphs: [
+        1,
+        2
+    ]
+  - Name: dynamiteer
+    StartingAt: 266
+    Prefix: dynamiteer
+    Glyphs: [
+        1,
+        2
     ]

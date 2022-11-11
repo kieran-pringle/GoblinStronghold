@@ -398,8 +398,28 @@
       "Glyph": 225,
       "Mirror": 0
     },
-    "bat-3": {
+    "slime-large-1": {
       "Glyph": 226,
+      "Mirror": 0
+    },
+    "slime-large-2": {
+      "Glyph": 227,
+      "Mirror": 0
+    },
+    "slime-medium-1": {
+      "Glyph": 228,
+      "Mirror": 0
+    },
+    "slime-medium-2": {
+      "Glyph": 229,
+      "Mirror": 0
+    },
+    "slime-small-1": {
+      "Glyph": 230,
+      "Mirror": 0
+    },
+    "slime-small-2": {
+      "Glyph": 231,
       "Mirror": 0
     },
     "border-horizontal": {
@@ -530,24 +550,84 @@
       "Glyph": 159,
       "Mirror": 0
     },
-    "floor-basic": {
+    "floor-dirt-1": {
       "Glyph": 160,
       "Mirror": 0
     },
-    "floor-dithered-1": {
+    "floor-dirt-2": {
       "Glyph": 161,
       "Mirror": 0
     },
-    "floor-dithered-2": {
+    "floor-dirt-3": {
       "Glyph": 162,
       "Mirror": 0
     },
-    "floor-dithered-3": {
+    "floor-dirt-4": {
       "Glyph": 163,
       "Mirror": 0
     },
-    "player-basic": {
+    "floor-dirt-5": {
+      "Glyph": 164,
+      "Mirror": 0
+    },
+    "floor-dirt-6": {
+      "Glyph": 165,
+      "Mirror": 0
+    },
+    "floor-dirt-7": {
+      "Glyph": 166,
+      "Mirror": 0
+    },
+    "floor-dirt-8": {
+      "Glyph": 167,
+      "Mirror": 0
+    },
+    "player-basic-1": {
       "Glyph": 256,
+      "Mirror": 0
+    },
+    "player-basic-2": {
+      "Glyph": 257,
+      "Mirror": 0
+    },
+    "sword-and-shield-1": {
+      "Glyph": 258,
+      "Mirror": 0
+    },
+    "sword-and-shield-2": {
+      "Glyph": 259,
+      "Mirror": 0
+    },
+    "gunslinger-1": {
+      "Glyph": 260,
+      "Mirror": 0
+    },
+    "gunslinger-2": {
+      "Glyph": 261,
+      "Mirror": 0
+    },
+    "bandito-1": {
+      "Glyph": 262,
+      "Mirror": 0
+    },
+    "bandito-2": {
+      "Glyph": 263,
+      "Mirror": 0
+    },
+    "miner-1": {
+      "Glyph": 264,
+      "Mirror": 0
+    },
+    "miner-2": {
+      "Glyph": 265,
+      "Mirror": 0
+    },
+    "dynamiteer-1": {
+      "Glyph": 266,
+      "Mirror": 0
+    },
+    "dynamiteer-2": {
+      "Glyph": 267,
       "Mirror": 0
     },
     "blank": {
@@ -558,36 +638,132 @@
       "Glyph": 1,
       "Mirror": 0
     },
-    "brick-wall-large": {
+    "wall-brick-shaded-1": {
       "Glyph": 192,
       "Mirror": 0
     },
-    "brick-wall-1": {
+    "wall-brick-shaded-2": {
       "Glyph": 193,
       "Mirror": 0
     },
-    "brick-wall-2": {
+    "wall-brick-shaded-3": {
       "Glyph": 194,
       "Mirror": 0
     },
-    "brick-wall-3": {
+    "wall-brick-shaded-4": {
       "Glyph": 195,
       "Mirror": 0
     },
-    "brick-wall-4": {
+    "wall-brick-shaded-5": {
       "Glyph": 196,
       "Mirror": 0
     },
-    "brick-wall-5": {
+    "wall-brick-shaded-6": {
       "Glyph": 197,
       "Mirror": 0
     },
-    "brick-wall-6": {
+    "wall-brick-shaded-7": {
       "Glyph": 198,
       "Mirror": 0
     },
-    "brick-wall-7": {
+    "wall-brick-shaded-8": {
       "Glyph": 199,
+      "Mirror": 0
+    },
+    "wall-brick-flat-1": {
+      "Glyph": 200,
+      "Mirror": 0
+    },
+    "wall-brick-flat-2": {
+      "Glyph": 201,
+      "Mirror": 0
+    },
+    "wall-brick-flat-3": {
+      "Glyph": 202,
+      "Mirror": 0
+    },
+    "wall-brick-flat-4": {
+      "Glyph": 203,
+      "Mirror": 0
+    },
+    "wall-brick-flat-5": {
+      "Glyph": 204,
+      "Mirror": 0
+    },
+    "wall-brick-flat-6": {
+      "Glyph": 205,
+      "Mirror": 0
+    },
+    "wall-brick-flat-7": {
+      "Glyph": 206,
+      "Mirror": 0
+    },
+    "wall-brick-flat-8": {
+      "Glyph": 207,
+      "Mirror": 0
+    },
+    "wall-rock-shaded-1": {
+      "Glyph": 208,
+      "Mirror": 0
+    },
+    "wall-rock-shaded-2": {
+      "Glyph": 209,
+      "Mirror": 0
+    },
+    "wall-rock-shaded-3": {
+      "Glyph": 210,
+      "Mirror": 0
+    },
+    "wall-rock-shaded-4": {
+      "Glyph": 211,
+      "Mirror": 0
+    },
+    "wall-rock-shaded-5": {
+      "Glyph": 212,
+      "Mirror": 0
+    },
+    "wall-rock-shaded-6": {
+      "Glyph": 213,
+      "Mirror": 0
+    },
+    "wall-rock-shaded-7": {
+      "Glyph": 214,
+      "Mirror": 0
+    },
+    "wall-rock-shaded-8": {
+      "Glyph": 215,
+      "Mirror": 0
+    },
+    "wall-rock-flat-1": {
+      "Glyph": 216,
+      "Mirror": 0
+    },
+    "wall-rock-flat-2": {
+      "Glyph": 217,
+      "Mirror": 0
+    },
+    "wall-rock-flat-3": {
+      "Glyph": 218,
+      "Mirror": 0
+    },
+    "wall-rock-flat-4": {
+      "Glyph": 219,
+      "Mirror": 0
+    },
+    "wall-rock-flat-5": {
+      "Glyph": 220,
+      "Mirror": 0
+    },
+    "wall-rock-flat-6": {
+      "Glyph": 221,
+      "Mirror": 0
+    },
+    "wall-rock-flat-7": {
+      "Glyph": 222,
+      "Mirror": 0
+    },
+    "wall-rock-flat-8": {
+      "Glyph": 223,
       "Mirror": 0
     }
   }

@@ -1,15 +1,14 @@
 ﻿GlyphDefinitions:
-  - Name: floors-basic
+  - Name: floor-dirt
     StartingAt: 160
-    Prefix: floor
-    Glyphs: [
-        basic
-    ]
-  - Name: floors-dithered
-    StartingAt: 161
-    Prefix: floor-dithered
+    Prefix: floor-dirt
     Glyphs: [
         1,
         2,
-        3
+        3,
+        4,
+        5,
+        6,
+        7,
+        8    
     ]

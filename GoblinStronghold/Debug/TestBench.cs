@@ -15,9 +15,19 @@ namespace GoblinStronghold.Debug
 
             context.Register(camera);
 
-            for (int x = 0; x < 10; x++)
+            for (int x = 0; x < 16; x++)
             {
-                Floor.NewIn(context).With(new Position(x, 0));
+                for (int y = 0; y < 16; y++)
+                {
+                    if (x == 0 || y == 0 || x == 15 || y == 15)
+                    {
+                        Wall.NewIn(context).With(new Position(x, y));
+                    }
+                    else
+                    {
+                        Floor.NewIn(context).With(new Position(x, y));
+                    }
+                }
             }
         }
     }

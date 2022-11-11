@@ -30,11 +30,11 @@ namespace GoblinStronghold.Graphics.Util
             // workaround for default params needing to be compile time constants
             if (foreground == null)
             {
-                foreground = Color.White;
+                foreground = Palette.WhiteBright;
             }
             if (background == null)
             {
-                background = Color.Black;
+                background = Palette.Black;
             }
             if (cellDecorators == null)
             {

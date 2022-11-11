@@ -1,14 +1,53 @@
 ﻿GlyphDefinitions:
-  - Name: brick-walls
+  - Name: wall-brick-shaded
     StartingAt: 192
-    Prefix: brick-wall
+    Prefix: wall-brick-shaded
     Glyphs: [
-        large,
         1,
         2,
         3,
         4,
         5,
         6,
-        7
+        7,
+        8
+    ]
+  - Name: wall-brick-flat
+    StartingAt: 200
+    Prefix: wall-brick-flat
+    Glyphs: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7, 
+        8
+    ]
+  - Name: wall-rock-shaded
+    StartingAt: 208
+    Prefix: wall-rock-shaded
+    Glyphs: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ]
+  - Name: wall-rock-flat
+    StartingAt: 216    
+    Prefix: wall-rock-flat
+    Glyphs: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
     ]

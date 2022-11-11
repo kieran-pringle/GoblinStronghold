@@ -1,0 +1,20 @@
+﻿// bold
+https://lospec.com/palette-list/hept32
+
+// softer
+https://lospec.com/palette-list/zughy-32
+
+// less browns more blues
+https://lospec.com/palette-list/dawnbringer-32
+
+// murkier but good cover
+https://lospec.com/palette-list/pineapple-32
+
+// good coverage
+https://lospec.com/palette-list/sheltzy32
+
+// maybe too pastel but has nice shading graph
+https://lospec.com/palette-list/axulart-32-color-palette
+
+// nice coverage
+https://lospec.com/palette-list/endesga-32

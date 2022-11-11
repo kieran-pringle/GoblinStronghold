@@ -4,6 +4,26 @@
     Prefix: bat
     Glyphs: [
         1,
-        2,
-        3
+        2
+    ]
+  - Name: slime-large
+    StartingAt: 226
+    Prefix: slime-large
+    Glyphs: [
+        1,
+        2
+    ]
+  - Name: slime-medium
+    StartingAt: 228
+    Prefix: slime-medium
+    Glyphs: [
+        1,
+        2
+    ]
+  - Name: slime-small
+    StartingAt: 230
+    Prefix: slime-small 
+    Glyphs: [
+        1,
+        2
     ]
