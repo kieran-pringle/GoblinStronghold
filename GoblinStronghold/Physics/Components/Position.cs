@@ -1,25 +1,35 @@
 ﻿using System;
 namespace GoblinStronghold.Physics.Components
 {
-    public struct Position
+    public readonly struct Position
     {
-        public int X;
-        public int Y;
-        public int Z;
+        public readonly int X;
+        public readonly int Y;
 
-        public int VelocityX;
-        public int VelocityY;
-        public int VelocityZ;
-
-        public Position(int x, int y, int z = 0)
+        public Position(int x, int y)
         {
             X = x;
             Y = y;
-            Z = z;
+        }
 
-            VelocityX = 0;
-            VelocityY = 0;
-            VelocityZ = 0;
+        public Position North()
+        {
+            return new Position(this.X, this.Y - 1);
+        }
+
+        public Position South()
+        {
+            return new Position(this.X, this.Y + 1);
+        }
+
+        public Position East()
+        {
+            return new Position(this.X + 1, this.Y);
+        }
+
+        public Position West()
+        {
+            return new Position(this.X - 1, this.Y);
         }
     }
 }

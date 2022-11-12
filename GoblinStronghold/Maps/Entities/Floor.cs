@@ -12,14 +12,14 @@ namespace GoblinStronghold.Maps.Entities
     {
         private static string[] _glyphPool = new[]
         {
-            "wall-rock-flat-1",
-            "wall-rock-flat-2",
-            "wall-rock-flat-3",
-            "wall-rock-flat-4",
-            "wall-rock-flat-5",
-            "wall-rock-flat-6",
-            "wall-rock-flat-7",
-            "wall-rock-flat-8",
+            "floor-dirt-1",
+            "floor-dirt-2",
+            "floor-dirt-3",
+            "floor-dirt-4",
+            "floor-dirt-5",
+            "floor-dirt-6",
+            "floor-dirt-7",
+            "floor-dirt-8",
         };
 
         public static Entity NewIn(IContext context)

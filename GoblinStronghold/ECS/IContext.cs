@@ -84,5 +84,10 @@ namespace GoblinStronghold.ECS
          * </summary>
          */
         public void Destroy<T>(Component<T> component);
+
+        /**
+         * Typesafe map access to all components
+         */
+        ComponentStore ComponentStoreFor(Entity entity);
     }
 }

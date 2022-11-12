@@ -48,6 +48,9 @@
     <None Remove="Time\Systems\" />
     <None Remove="Physics\Messages\" />
     <None Remove="Physics\Systems\" />
+    <None Remove="Input\" />
+    <None Remove="Input\Components\" />
+    <None Remove="Input\Systems\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -76,6 +79,9 @@
     <Folder Include="Time\Systems\" />
     <Folder Include="Physics\Messages\" />
     <Folder Include="Physics\Systems\" />
+    <Folder Include="Input\" />
+    <Folder Include="Input\Components\" />
+    <Folder Include="Input\Systems\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">

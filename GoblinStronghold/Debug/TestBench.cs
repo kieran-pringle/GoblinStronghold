@@ -1,11 +1,13 @@
 ﻿using System;
 using GoblinStronghold.Creatures.Entities;
 using GoblinStronghold.ECS;
+using GoblinStronghold.Input;
 using GoblinStronghold.Graphics;
 using GoblinStronghold.Graphics.Systems;
 using GoblinStronghold.Maps.Entities;
 using GoblinStronghold.Messaging;
 using GoblinStronghold.Physics.Components;
+using GoblinStronghold.Physics;
 using static GoblinStronghold.ECS.Context;
 
 namespace GoblinStronghold.Debug
@@ -31,12 +33,14 @@ namespace GoblinStronghold.Debug
                 }
             }
 
-            Player.NewIn(context).With(new Position(3,3));
+            Player.NewIn(context).With(new Position(10,10));
         }
 
         public static void InitSystems(IContext context, RootScreen screen)
         {
             Graphics.Constants.Init(context, screen);
+            Physics.Constants.Init(context);
+            Input.Constants.Init(context);
         }
     }
 }

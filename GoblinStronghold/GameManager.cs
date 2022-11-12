@@ -36,7 +36,7 @@ namespace GoblinStronghold
 
         private static void CreateScreen()
         {
-            Screen = new RootScreen();
+            Screen = new RootScreen(Context);
 
             Game.Instance.Screen = GameManager.Screen;
             Game.Instance.Screen.IsFocused = true;
@@ -61,9 +61,6 @@ namespace GoblinStronghold
         {
             // message about time passed
             Context.Send(new UpdateTimePassed(args.UpdateFrameDelta));
-
-            // get inputs
-
 
             // emit events on start of turn
 

@@ -3,6 +3,7 @@ using SadConsole.Input;
 using SadRogue.Primitives;
 using System.Collections.Generic;
 using GoblinStronghold.Screen;
+using GoblinStronghold.ECS;
 using System.Diagnostics;
 using GoblinStronghold.Graphics.Util.Drawer;
 using System;
@@ -14,12 +15,15 @@ namespace GoblinStronghold
 {
     public class RootScreen : ScreenObject
     {
+        private readonly IContext _context;
         private readonly MapScreen _map;
         private readonly LogScreen _logs;
 
-        // TODO: inject map into here, possibly in Program
-        public RootScreen()
+        // TODO: inject game instance rather than call it from statics
+        public RootScreen(IContext context)
         {
+            _context = context;
+
             // compensate for default font size of 16 * 8
             int fullWidth = Game.Instance.ScreenCellsX;
             int fullHeight = Game.Instance.ScreenCellsY;
@@ -57,6 +61,12 @@ namespace GoblinStronghold
         public Console LogConsole()
         {
             return _logs.SubConsole;
+        }
+
+        public override bool ProcessKeyboard(Keyboard keyboard)
+        {
+            _context.Send(keyboard);
+            return true;
         }
     }
 }

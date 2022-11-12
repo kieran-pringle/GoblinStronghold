@@ -1,5 +1,5 @@
-﻿using System;
-using GoblinStronghold.ECS;
+﻿using GoblinStronghold.ECS;
+using GoblinStronghold.Physics.Components;
 using GoblinStronghold.Graphics.Components;
 using GoblinStronghold.Graphics.Util;
 using GoblinStronghold.Maps.Components;
@@ -29,8 +29,8 @@ namespace GoblinStronghold.Maps.Entities
             return context
                 .CreateEntity()
                 .With(Tile.Instance)
-                .With(new HasGlyph(glyph));
+                .With(new HasGlyph(glyph))
+                .With(new Collision(Impassable.Instance));
         }
     }
 }
-

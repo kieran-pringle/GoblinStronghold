@@ -1,6 +1,7 @@
 ﻿using System;
 using GoblinStronghold.Creatures.Components;
 using GoblinStronghold.ECS;
+using GoblinStronghold.Input.Components;
 using GoblinStronghold.Graphics.Components;
 using GoblinStronghold.Graphics.Util;
 
@@ -20,10 +21,15 @@ namespace GoblinStronghold.Creatures.Entities
                 Palette.Black
             );
 
+            var control = new KeyboardControllable(
+                    new ControlCreature());
+            control.IsCurrentlyControlled = true;
+
             return context
                 .CreateEntity()
                 .With(Creature.Instance)
-                .With(new HasGlyph(glyph));
+                .With(new HasGlyph(glyph))
+                .With(control);
         }
     }
 }

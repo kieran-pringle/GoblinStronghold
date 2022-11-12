@@ -89,6 +89,11 @@ namespace GoblinStronghold.ECS
             _currentId = new ContextID(this, 0);
         }
 
+
+        // ********************************************************
+        // public
+        // ********************************************************
+
         // TODO: call destroy on everything to eliminate references so they
         // can get garbage collected
         public void Clear()
@@ -149,6 +154,19 @@ namespace GoblinStronghold.ECS
                 .Select(c => c.Owner);
         }
 
+        public ComponentStore ComponentStoreFor(Entity entity)
+        {
+            if (_entityToComponentTypeToComponent.ContainsKey(entity))
+            {
+                return new ComponentStore(_entityToComponentTypeToComponent[entity]);
+            }
+            else
+            {
+                throw new KeyNotFoundException("There is no such entity in" +
+                    "this context. It may have been destroyed");
+            }
+        }
+
         // ********************************************************
         // internal
         // ********************************************************
@@ -188,19 +206,6 @@ namespace GoblinStronghold.ECS
             else
             {
                 return null;
-            }
-        }
-
-        internal ComponentStore ComponentStoreFor(Entity entity)
-        {
-            if (_entityToComponentTypeToComponent.ContainsKey(entity))
-            {
-                return new ComponentStore(_entityToComponentTypeToComponent[entity]);
-            }
-            else
-            {
-                throw new KeyNotFoundException("There is no such entity in" +
-                    "this context. It may have been destroyed");
             }
         }
 

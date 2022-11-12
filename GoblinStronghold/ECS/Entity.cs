@@ -21,7 +21,7 @@ namespace GoblinStronghold.ECS
 
         public Entity With<T>(T component)
         {
-            ParentContext().AddComponentTo<T>(component, this);
+            _id._ctx.AddComponentTo<T>(component, this);
             if (component is IOnComponentRegister)
             {
                 ((IOnComponentRegister)component)
@@ -42,15 +42,15 @@ namespace GoblinStronghold.ECS
 
         public ComponentStore AllComponents()
         {
-            return ParentContext().ComponentStoreFor(this);
+            return Context().ComponentStoreFor(this);
         }
 
         public void Destroy()
         {
-            ParentContext().Destroy(this);
+            Context().Destroy(this);
         }
 
-        private Context ParentContext()
+        public IContext Context()
         {
             return _id._ctx;
         }
