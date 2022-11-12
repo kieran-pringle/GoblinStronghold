@@ -1,5 +1,6 @@
 ﻿using System;
 using SadConsole;
+using GoblinStronghold.ECS;
 
 namespace GoblinStronghold.Graphics.Components
 {
@@ -10,7 +11,7 @@ namespace GoblinStronghold.Graphics.Components
     *       ECS. Delegates call to its internal <c>GlyphProvider</c>. 
     *   </summary>
     */
-    public class HasGlyph
+    public class HasGlyph : IOnComponentRegister
     {
         private IGlyphProvider _glyphProvider;
 
@@ -23,6 +24,10 @@ namespace GoblinStronghold.Graphics.Components
         {
             return _glyphProvider.Glyph();
         }
+
+        public void OnRegisterTo(Entity entity)
+        {
+            _glyphProvider.OnRegister(entity);
+        }
     }
 }
-

@@ -1,10 +1,12 @@
 ﻿using System;
 using GoblinStronghold.Creatures.Entities;
 using GoblinStronghold.ECS;
+using GoblinStronghold.Graphics;
 using GoblinStronghold.Graphics.Systems;
 using GoblinStronghold.Maps.Entities;
 using GoblinStronghold.Messaging;
 using GoblinStronghold.Physics.Components;
+using static GoblinStronghold.ECS.Context;
 
 namespace GoblinStronghold.Debug
 {
@@ -12,9 +14,7 @@ namespace GoblinStronghold.Debug
     {
         public static void Load(IContext context, RootScreen screen)
         {
-            var camera = new CameraSystem(screen.MapConsole());
-
-            context.Register(camera);
+            InitSystems(context, screen);
 
             for (int x = 0; x < 16; x++)
             {
@@ -32,6 +32,11 @@ namespace GoblinStronghold.Debug
             }
 
             Player.NewIn(context).With(new Position(3,3));
+        }
+
+        public static void InitSystems(IContext context, RootScreen screen)
+        {
+            Graphics.Constants.Init(context, screen);
         }
     }
 }

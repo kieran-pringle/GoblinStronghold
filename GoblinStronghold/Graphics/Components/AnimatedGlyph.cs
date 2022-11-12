@@ -9,7 +9,7 @@ using GoblinStronghold.Graphics.Messages;
 
 namespace GoblinStronghold.Graphics.Components
 {
-    public class AnimatedGlyph : System<RenderFrame>, IGlyphProvider
+    public class AnimatedGlyph : IGlyphProvider
     {
         private ColoredGlyph[] _frames;
         private int _frame = 0;
@@ -28,17 +28,15 @@ namespace GoblinStronghold.Graphics.Components
             return _frames[_frame];
         }
 
-        public override void Handle(RenderFrame message)
-        {
-            if(message.FPS == Graphics.Constants.ANIMATION_FPS)
-            {
-                IncrementFrame();
-            }
-        }
-
-        private void IncrementFrame()
+        public void IncrementFrame()
         {
             _frame = (_frame + 1) % _frames.Length;
+        }
+
+        // register self for receiving animation framerate updates
+        void IGlyphProvider.OnRegister(Entity e)
+        {
+            e.With(this);
         }
     }
 }

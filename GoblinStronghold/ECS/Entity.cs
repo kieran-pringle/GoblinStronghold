@@ -22,6 +22,11 @@ namespace GoblinStronghold.ECS
         public Entity With<T>(T component)
         {
             ParentContext().AddComponentTo<T>(component, this);
+            if (component is IOnComponentRegister)
+            {
+                ((IOnComponentRegister)component)
+                    .OnRegisterTo(this);
+            }
             return this;
         }
 

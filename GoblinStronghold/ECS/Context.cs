@@ -144,7 +144,9 @@ namespace GoblinStronghold.ECS
 
         public IEnumerable<Entity> AllEntitiesWithMatching<T>(Func<T, bool> matcher)
         {
-            throw new NotImplementedException();
+           return AllComponents<T>()
+                .Where(c => matcher(c.Content))
+                .Select(c => c.Owner);
         }
 
         // ********************************************************

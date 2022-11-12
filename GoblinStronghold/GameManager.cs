@@ -5,6 +5,7 @@ using GoblinStronghold.ECS;
 using GoblinStronghold.Graphics;
 using GoblinStronghold.Graphics.Messages;
 using GoblinStronghold.Graphics.Util;
+using GoblinStronghold.Graphics.Systems;
 using GoblinStronghold.Messaging;
 using GoblinStronghold.Screen;
 using GoblinStronghold.Time.Systems;
@@ -47,14 +48,13 @@ namespace GoblinStronghold
         {
             Game.Instance.FrameUpdate += GameManager.UpdateGame;
             Game.Instance.FrameRender += GameManager.RenderGame;
-
-            // animations run at a smoking 2 FPS
-            Context.Register(new FrameRateNotifier(Graphics.Constants.ANIMATION_FPS));
         }
 
         private static void LoadGame()
         {
             TestBench.Load(Context, Screen);
+
+            // later we can have the other constant class inits
         }
 
         private static void UpdateGame(object sender, GameHost args)

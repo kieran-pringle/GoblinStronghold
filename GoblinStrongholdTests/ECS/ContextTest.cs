@@ -4,6 +4,8 @@ using GoblinStronghold.ECS;
 
 namespace GoblinStronghold.Tests.ECS
 {
+    // most coverage for this class will come with integration testing, as it is
+    // easiest to use actual contexts to test systems
     [TestFixture]
     public class ContextTest
     {

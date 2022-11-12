@@ -27,8 +27,12 @@
     <None Remove="ECS\" />
     <None Remove="JetBrains.dotMemoryUnit" />
     <None Remove="JetBrains.dotMemory.Console.macos-x64" />
+    <None Remove="Physics\" />
+    <None Remove="Physics\Systems\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ECS\" />
+    <Folder Include="Physics\" />
+    <Folder Include="Physics\Systems\" />
   </ItemGroup>
 </Project>

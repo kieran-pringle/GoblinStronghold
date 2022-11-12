@@ -19,7 +19,6 @@ namespace GoblinStronghold.Creatures.Entities
                 Palette.WhiteBright,
                 Palette.Black
             );
-            context.Register(glyph);
 
             return context
                 .CreateEntity()
