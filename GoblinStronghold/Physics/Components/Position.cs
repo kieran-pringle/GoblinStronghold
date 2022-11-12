@@ -1,7 +1,7 @@
 ﻿using System;
 namespace GoblinStronghold.Physics.Components
 {
-    public class Position
+    public struct Position
     {
         public int X;
         public int Y;
