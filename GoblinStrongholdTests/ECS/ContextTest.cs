@@ -44,7 +44,7 @@ namespace GoblinStronghold.Tests.ECS
             foreach (var s in allStrings)
             {
                 owners.Add(s.Owner);
-                Assert.That(s.Content, Is.EqualTo(str));
+                Assert.That(s.Component, Is.EqualTo(str));
             }
           
             foreach (var e in new Entity[] {e1, e2, e3})

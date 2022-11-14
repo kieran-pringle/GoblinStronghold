@@ -20,7 +20,7 @@ namespace GoblinStronghold.Input.Components
 
             if (posComponent.HasValue)
             {
-                var pos = posComponent.Value.Content;
+                var pos = posComponent.Content();
                 foreach (var key in keyboard.KeysPressed)
                 {
                     // better to switch statment over this probably

@@ -1,9 +1,6 @@
-﻿using System;
-using SadConsole.Input;
+﻿using SadConsole.Input;
 using GoblinStronghold.ECS;
 using GoblinStronghold.Input.Components;
-using GoblinStronghold.Physics.Components;
-using GoblinStronghold.Physics.Messages;
 
 namespace GoblinStronghold.Input.Systems
 {

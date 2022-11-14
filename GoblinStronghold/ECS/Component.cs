@@ -1,6 +1,4 @@
-﻿using System;
-using Functional.Option;
-using GoblinStronghold.ECS;
+﻿using Functional.Option;
 using static GoblinStronghold.ECS.Context;
 
 namespace GoblinStronghold.ECS
@@ -8,7 +6,7 @@ namespace GoblinStronghold.ECS
     /**
      *  The wrapper class containing the data in a component and its link back to its parent entity.
      */
-    public sealed class Component<T> : IDestroyable
+    public sealed class Component<T> :  IDestroyable
     {
         // internally managed ID, if null, this object is not managed by
         // the context
@@ -35,9 +33,18 @@ namespace GoblinStronghold.ECS
             _id._ctx.Destroy(this);
         }
 
-        private Context ParentContext()
+        public Context Context()
         {
             return _id._ctx;
+        }
+    }
+
+    // extension method for unwrapping nicely from an Option when we know it is populated
+    public static class ComponentExtensions
+    {
+        public static T Content<T>(this Option<Component<T>> componentOption)
+        {
+            return componentOption.Value.Content;
         }
     }
 }

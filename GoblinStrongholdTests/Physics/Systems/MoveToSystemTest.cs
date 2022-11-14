@@ -36,7 +36,7 @@ namespace GoblinStronghold.Tests.Physics.Systems
 
             _ctx.Send(msg);
 
-            var positionAfterMsg = movingEntity.Component<Position>().Value.Content;
+            var positionAfterMsg = movingEntity.Component<Position>().Value.Component;
 
             Assert.That(
                 positionAfterMsg,
@@ -74,7 +74,7 @@ namespace GoblinStronghold.Tests.Physics.Systems
                 Times.Once()
             );
 
-            var positionAfterMsg = movingEntity.Component<Position>().Value.Content;
+            var positionAfterMsg = movingEntity.Component<Position>().Value.Component;
             Assert.That(
                 positionAfterMsg,
                 Is.EqualTo(newPosition)
@@ -111,7 +111,7 @@ namespace GoblinStronghold.Tests.Physics.Systems
                 Times.Once()
             );
 
-            var positionAfterMsg = movingEntity.Component<Position>().Value.Content;
+            var positionAfterMsg = movingEntity.Component<Position>().Value.Component;
             Assert.That(
                 positionAfterMsg,
                 Is.EqualTo(originalPosition)
@@ -151,7 +151,7 @@ namespace GoblinStronghold.Tests.Physics.Systems
                 Times.Exactly(3)
             );
 
-            var positionAfterMsg = movingEntity.Component<Position>().Value.Content;
+            var positionAfterMsg = movingEntity.Component<Position>().Value.Component;
             Assert.That(
                 positionAfterMsg,
                 Is.EqualTo(newPosition)
@@ -205,7 +205,7 @@ namespace GoblinStronghold.Tests.Physics.Systems
                 Times.Once()
             );
 
-            var positionAfterMsg = movingEntity.Component<Position>().Value.Content;
+            var positionAfterMsg = movingEntity.Component<Position>().Value.Component;
             Assert.That(
                 positionAfterMsg,
                 Is.EqualTo(originalPosition)
@@ -242,7 +242,7 @@ namespace GoblinStronghold.Tests.Physics.Systems
 
             // assert
             Assert.That(
-                movingEntity.Component<string>().Value.Content,
+                movingEntity.Component<string>().Value.Component,
                 Is.EqualTo(sideEffect)
             );
         }
@@ -276,7 +276,7 @@ namespace GoblinStronghold.Tests.Physics.Systems
 
             // assert
             Assert.That(
-                movingEntity.Component<string>().Value.Content,
+                movingEntity.Component<string>().Value.Component,
                 Is.EqualTo(sideEffect)
             );
         }

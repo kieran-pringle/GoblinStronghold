@@ -33,7 +33,7 @@ namespace GoblinStronghold.Tests.ECS
             _entity.With(strComponent);
             var component = _entity.Component<String>();
 
-            Assert.That(component.Value.Content, Is.EqualTo(strComponent));
+            Assert.That(component.Value.Component, Is.EqualTo(strComponent));
         }
 
         [Test]
@@ -42,10 +42,10 @@ namespace GoblinStronghold.Tests.ECS
             var strComponent = "data";
             _entity.With(strComponent);
             
-            _entity.Component<String>().Value.Content = "new-data";
+            _entity.Component<String>().Value.Component = "new-data";
 
             Assert.That(
-                _entity.Component<String>().Value.Content,
+                _entity.Component<String>().Value.Component,
                 Is.EqualTo("new-data"));
         }
 
