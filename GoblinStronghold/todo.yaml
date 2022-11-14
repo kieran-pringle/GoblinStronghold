@@ -5,24 +5,22 @@ keepInMind:
     - Excessive iterations to find objects
     - Just query through the context
 ---
-- ecs:
-    - basicSystems:
-        - movement:
-            - https://www.reddit.com/r/roguelikedev/comments/fvi1vx/ecs_help_how_to_avoid_close_coupling_of_systems/
-            - https://www.reddit.com/r/roguelikedev/comments/63zhv7/entitycomponentsystem_pattern_in_turnbased/
-            - https://www.reddit.com/r/roguelikedev/comments/6xbo23/need_some_help_figuring_out_a_movement_system_ecs/
 - refactors:
     - can I get rid of the .Value.Content? Maybe what I really want to do is have Component be a kind of Option class
     - when we get all entites with components return as a dict rather than double lookups
+- ecs:
+    - basicSystems:
+        - monster movement (random)
+        - attacking
+- adventureLog:
+    - multifonts?
+    - how do components interact to make fun and surprising messages?
 - monsters:
     - bat
     - attacking
     - health
     - ai control
     - turns
-- adventureLog:
-    - multifonts?
-    - how do components interact to make fun and surprising messages?
 - diceRolling:
     - parse dice strings
     - be able to log some of them out? or how good an attack was
