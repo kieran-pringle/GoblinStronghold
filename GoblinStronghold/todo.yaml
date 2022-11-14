@@ -6,7 +6,6 @@ keepInMind:
     - Just query through the context
 ---
 - refactors:
-    - can I get rid of the .Value.Content? Maybe what I really want to do is have Component be a kind of Option class
     - when we get all entites with components return as a dict rather than double lookups
 - ecs:
     - basicSystems:
@@ -59,3 +58,7 @@ keepInMind:
     - open and close!
     - not everyone can open
     - blocks sight
+- ecsImprovements:
+    - references? so we are not copying results constantly
+    - properly db backed? maybe we can have fun doing it ourself with b-trees or something
+    - an entity is just a search tree into the component store?

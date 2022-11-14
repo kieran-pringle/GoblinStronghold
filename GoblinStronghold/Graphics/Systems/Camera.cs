@@ -22,13 +22,14 @@ namespace GoblinStronghold.Graphics.Systems
 
         public void Render(IContext context)
         {
-            foreach (var tile in context.AllEntitiesWith<T>())
+            foreach (var entityToTile in context.AllEntitiesWith<T>())
             {
-                tile.Component<Position>().ForEach(p =>
+                var e = entityToTile.Key;
+                e.Component<Position>().ForEach(p =>
                 {
                     // TODO: check for position in camera bounds
 
-                    tile.Component<HasGlyph>().ForEach(g =>
+                    e.Component<HasGlyph>().ForEach(g =>
                     {
                         // if we have both components needed
                         Position position = p.Content;

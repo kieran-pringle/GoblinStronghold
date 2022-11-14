@@ -12,6 +12,9 @@ namespace GoblinStronghold.ECS
     // but also an entry point into registering and deregistering components
     public sealed class Entity : IDestroyable
     {
+        private ComponentStore _cache;
+        private bool _isCacheValid;
+
         internal readonly ContextID _id;
 
         internal Entity(ContextID id)
@@ -21,12 +24,14 @@ namespace GoblinStronghold.ECS
 
         public Entity With<T>(T component)
         {
-            _id._ctx.AddComponentTo<T>(component, this);
+            _id._ctx.AddComponentTo(component, this);
             if (component is IOnComponentRegister)
             {
                 ((IOnComponentRegister)component)
                     .OnRegisterTo(this);
             }
+            // invalidate the cache
+            _isCacheValid = false;
             return this;
         }
 
@@ -42,7 +47,11 @@ namespace GoblinStronghold.ECS
 
         public ComponentStore AllComponents()
         {
-            return Context().ComponentStoreFor(this);
+            if (_cache == null || !_isCacheValid)
+            {
+                _cache = Context().ComponentStoreFor(this);
+            }
+            return _cache;
         }
 
         public void Destroy()

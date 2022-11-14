@@ -39,7 +39,7 @@ namespace GoblinStronghold.ECS
          *      Get all <c>Entities</c> with a given <c>Component</c>
          * </summary>
          */
-        public IEnumerable<Entity> AllEntitiesWith<T>();
+        public IReadOnlyDictionary<Entity, T> AllEntitiesWith<T>();
 
         /**
          * <summary>

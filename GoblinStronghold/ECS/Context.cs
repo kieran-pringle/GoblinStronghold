@@ -41,16 +41,14 @@ namespace GoblinStronghold.ECS
 
             public int CompareTo(ContextID other)
             {
-                return this._id.CompareTo(other._id);
+                return _id.CompareTo(other._id);
             }
 
             internal ContextID Next()
             {
-                return new ContextID(_ctx, id: (this._id + 1));
+                return new ContextID(_ctx, id: (_id + 1));
             }
         }
-
-        private static readonly Context s_instance = new Context();
 
         // keeps track of last used ID
         // since this is a non-nullable reference to a readonly struct this is
@@ -140,11 +138,17 @@ namespace GoblinStronghold.ECS
             return (IEnumerable<Component<T>>)_componentTypeToComponents[typeof(T)];
         }
 
-        public IEnumerable<Entity> AllEntitiesWith<T>()
+        public IReadOnlyDictionary<Entity, T> AllEntitiesWith<T>()
         {
-            return _entityToComponentTypeToComponent
-                .Where(kv => kv.Value.ContainsKey(typeof(T)))
-                .Select(kv => kv.Key);
+            var dict = new Dictionary<Entity, T>();
+            var type = typeof(T);
+            var matchingEntites = _entityToComponentTypeToComponent
+                .Where(kv => kv.Value.ContainsKey(type));
+            foreach (var kv in matchingEntites)
+            {
+                dict[kv.Key] = ((Component<T>)kv.Value[type]).Content;
+            }
+            return dict;
         }
 
         public IEnumerable<Entity> AllEntitiesWithMatching<T>(Func<T, bool> matcher)
