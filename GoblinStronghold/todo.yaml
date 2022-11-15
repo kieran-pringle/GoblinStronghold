@@ -5,21 +5,15 @@ keepInMind:
     - Excessive iterations to find objects
     - Just query through the context
 ---
-- refactors:
-    - when we get all entites with components return as a dict rather than double lookups
-- ecs:
-    - basicSystems:
-        - monster movement (random)
-        - attacking
-- adventureLog:
-    - multifonts?
-    - how do components interact to make fun and surprising messages?
 - monsters:
     - bat
     - attacking
     - health
     - ai control
     - turns
+- adventureLog:
+    - multifonts?
+    - how do components interact to make fun and surprising messages?
 - diceRolling:
     - parse dice strings
     - be able to log some of them out? or how good an attack was

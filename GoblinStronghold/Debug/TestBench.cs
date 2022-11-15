@@ -33,7 +33,8 @@ namespace GoblinStronghold.Debug
                 }
             }
 
-            Player.NewIn(context).With(new Position(10,10));
+            Player.NewIn(context).With(new Position(10, 10));
+            Bat.NewIn(context).With(new Position(4, 4));
         }
 
         public static void InitSystems(IContext context, RootScreen screen)

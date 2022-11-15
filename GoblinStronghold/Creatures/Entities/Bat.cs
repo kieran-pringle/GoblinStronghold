@@ -1,17 +1,16 @@
 ﻿using GoblinStronghold.Creatures.Components;
 using GoblinStronghold.ECS;
-using GoblinStronghold.Input.Components;
 using GoblinStronghold.Graphics.Components;
 using GoblinStronghold.Graphics.Util;
 using GoblinStronghold.Physics.Components;
 
 namespace GoblinStronghold.Creatures.Entities
 {
-    public static class Player
-    {
+	public static class Bat
+	{
         private static string[] _frames = new[]{
-            "gunslinger-1",
-            "gunslinger-2"
+            "bat-1",
+            "bat-2"
         };
 
         public static Entity NewIn(IContext context)
@@ -21,16 +20,15 @@ namespace GoblinStronghold.Creatures.Entities
                 Palette.Black
             );
 
-            var control = new KeyboardControllable(
-                    new ControlCreature());
-            control.IsCurrentlyControlled = true;
+            // somehow attach AI here
+            // var control
 
             return context
                 .CreateEntity()
                 .With(Creature.Instance)
                 .With(new HasGlyph(glyph))
-                .With(new Collision(Impassable.Instance))
-                .With(control);
+                .With(new Collision(Impassable.Instance));
         }
     }
 }
+
