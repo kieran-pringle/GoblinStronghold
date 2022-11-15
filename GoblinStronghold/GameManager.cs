@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
 using GoblinStronghold.Debug;
 using GoblinStronghold.ECS;
-using GoblinStronghold.Graphics;
 using GoblinStronghold.Graphics.Messages;
 using GoblinStronghold.Graphics.Util;
-using GoblinStronghold.Graphics.Systems;
-using GoblinStronghold.Messaging;
-using GoblinStronghold.Screen;
-using GoblinStronghold.Time.Systems;
 using GoblinStronghold.Time.Messages;
 using SadConsole;
 
@@ -38,7 +32,7 @@ namespace GoblinStronghold
         {
             Screen = new RootScreen(Context);
 
-            Game.Instance.Screen = GameManager.Screen;
+            Game.Instance.Screen = Screen;
             Game.Instance.Screen.IsFocused = true;
 
             Game.Instance.DestroyDefaultStartingConsole();
@@ -46,32 +40,29 @@ namespace GoblinStronghold
 
         private static void AttachUpdateHandlers()
         {
-            Game.Instance.FrameUpdate += GameManager.UpdateGame;
-            Game.Instance.FrameRender += GameManager.RenderGame;
+            Game.Instance.FrameUpdate += UpdateGame;
+            Game.Instance.FrameRender += RenderGame;
         }
 
         private static void LoadGame()
         {
+            // something that calls the constant class inits and populates a "map"
             TestBench.Load(Context, Screen);
-
-            // later we can have the other constant class inits
         }
 
+        // TODO: can I have systems register their own messages they want at
+        // these cycles? try running everything off `UpdateTimePassed` until
+        // clashes. Start and end of a turn should kick off synchronous stuff
         private static void UpdateGame(object sender, GameHost args)
         {
-            // message about time passed
+            // take turns and sim
             Context.Send(new UpdateTimePassed(args.UpdateFrameDelta));
-
-            // emit events on start of turn
-
-
-            // process events
         }
 
         private static void RenderGame(object sender, GameHost args)
         {
             // draw results
-            Context.Send(Render.Instance);
+            Context.Send(new RenderTimePassed(args.DrawFrameDelta));
         }
     }
 }

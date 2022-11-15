@@ -1,11 +1,9 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using SadConsole;
 using SadRogue.Primitives;
 using GoblinStronghold.ECS;
 using GoblinStronghold.Graphics.Util;
-using GoblinStronghold.Graphics.Messages;
 
 namespace GoblinStronghold.Graphics.Components
 {

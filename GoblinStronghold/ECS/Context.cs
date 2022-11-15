@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Collections;
-using GoblinStronghold.Messaging;
+using GoblinStronghold.ECS.Messaging;
 
 namespace GoblinStronghold.ECS
 {
@@ -197,6 +195,13 @@ namespace GoblinStronghold.ECS
 
             AllComponentsOfTypeMutable<T>().Add(newComponent);
             currentComponents[componentType] = newComponent;
+
+            // callback incase component has extra work to do
+            if (component is IOnComponentRegister)
+            {
+                ((IOnComponentRegister)component)
+                    .OnRegisterTo(entity);
+            }
         }
 
         internal Component<T> GetComponentFromEntity<T>(Entity entity)
@@ -213,16 +218,20 @@ namespace GoblinStronghold.ECS
             }
         }
 
-        public void Register<T>(System<T> system)
+        public void Register<T>(ISystem<T> system)
         {
             _bus.Register(system);
-            system._context = this;
+            system.Context = this;
+            if (system is IOnSystemRegister)
+            {
+                ((IOnSystemRegister)system).OnSystemRegister(this);
+            }
         }
 
-        public void Unregister<T>(System<T> system)
+        public void Unregister<T>(ISystem<T> system)
         {
             _bus.UnRegister(system);
-            system._context = null;
+            system.Context = null;
         }
 
         public void Send<T>(T message)
@@ -275,8 +284,7 @@ namespace GoblinStronghold.ECS
             else
             {
                 components = new HashSet<Component<T>>();
-                _componentTypeToComponents[componentType] =
-                    (IEnumerable<object>) components;
+                _componentTypeToComponents[componentType] = components;
             }
 
             return components;

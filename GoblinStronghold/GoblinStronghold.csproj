@@ -20,7 +20,6 @@
     <None Remove="res\" />
     <None Remove="Screen\" />
     <None Remove="Graphics\" />
-    <None Remove="Messaging\" />
     <None Remove="scripts\font-config\GlyphDefinitions\" />
     <None Remove="Components\DrawableComponent.ce" />
     <None Remove="res\font\" />
@@ -51,12 +50,16 @@
     <None Remove="Input\" />
     <None Remove="Input\Components\" />
     <None Remove="Input\Systems\" />
+    <None Remove="ECS\Messaging\" />
+    <None Remove="Time\Messages\Turns\" />
+    <None Remove="Time\Components\" />
+    <None Remove="AI\" />
+    <None Remove="AI\Components\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
     <Folder Include="Screen\" />
     <Folder Include="Graphics\" />
-    <Folder Include="Messaging\" />
     <Folder Include="res\font\" />
     <Folder Include="res\font\GlyphDefinitions\" />
     <Folder Include="ECS\" />
@@ -82,6 +85,11 @@
     <Folder Include="Input\" />
     <Folder Include="Input\Components\" />
     <Folder Include="Input\Systems\" />
+    <Folder Include="ECS\Messaging\" />
+    <Folder Include="Time\Messages\Turns\" />
+    <Folder Include="Time\Components\" />
+    <Folder Include="AI\" />
+    <Folder Include="AI\Components\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">

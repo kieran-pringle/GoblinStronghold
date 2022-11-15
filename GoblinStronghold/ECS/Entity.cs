@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using Functional.Option;
-using GoblinStronghold.ECS;
 
 using static GoblinStronghold.ECS.Context;
 
@@ -25,11 +22,6 @@ namespace GoblinStronghold.ECS
         public Entity With<T>(T component)
         {
             _id._ctx.AddComponentTo(component, this);
-            if (component is IOnComponentRegister)
-            {
-                ((IOnComponentRegister)component)
-                    .OnRegisterTo(this);
-            }
             // invalidate the cache
             _isCacheValid = false;
             return this;
@@ -62,6 +54,18 @@ namespace GoblinStronghold.ECS
         public IContext Context()
         {
             return _id._ctx;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Entity)
+            {
+                // checks internal ids for equality
+                return ((Entity)obj)._id.Equals(_id);
+            } else
+            {
+                return base.Equals(obj);
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using GoblinStronghold.ECS;
+﻿using GoblinStronghold.ECS;
 
 namespace GoblinStronghold.Tests.ECS
 {
@@ -33,7 +32,7 @@ namespace GoblinStronghold.Tests.ECS
             _entity.With(strComponent);
             var component = _entity.Component<String>();
 
-            Assert.That(component.Value.Component, Is.EqualTo(strComponent));
+            Assert.That(component.Content(), Is.EqualTo(strComponent));
         }
 
         [Test]
@@ -42,10 +41,10 @@ namespace GoblinStronghold.Tests.ECS
             var strComponent = "data";
             _entity.With(strComponent);
             
-            _entity.Component<String>().Value.Component = "new-data";
+            _entity.Component<String>().Value.Content = "new-data";
 
             Assert.That(
-                _entity.Component<String>().Value.Component,
+                _entity.Component<String>().Content(),
                 Is.EqualTo("new-data"));
         }
 

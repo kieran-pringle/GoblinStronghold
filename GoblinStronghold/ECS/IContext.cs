@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using GoblinStronghold.Messaging;
 
 namespace GoblinStronghold.ECS
 {
@@ -54,14 +53,14 @@ namespace GoblinStronghold.ECS
          *      Register a <c>System</c> to the context
          * </summary>
          */
-        public void Register<T>(System<T> system);
+        public void Register<T>(ISystem<T> system);
 
         /**
          * <summary>
          *      Unregister a <c>System</c> from the context
          * </summary>
          */
-        public void Unregister<T>(System<T> system);
+        public void Unregister<T>(ISystem<T> system);
 
         /**
          * Sends a message to all registered <c>System<c/> instances for that

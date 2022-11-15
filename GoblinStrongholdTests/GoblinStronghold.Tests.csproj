@@ -29,10 +29,18 @@
     <None Remove="JetBrains.dotMemory.Console.macos-x64" />
     <None Remove="Physics\" />
     <None Remove="Physics\Systems\" />
+    <None Remove="Time\" />
+    <None Remove="Time\Systems\" />
+    <None Remove="Input\" />
+    <None Remove="Input\Components\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ECS\" />
     <Folder Include="Physics\" />
     <Folder Include="Physics\Systems\" />
+    <Folder Include="Time\" />
+    <Folder Include="Time\Systems\" />
+    <Folder Include="Input\" />
+    <Folder Include="Input\Components\" />
   </ItemGroup>
 </Project>

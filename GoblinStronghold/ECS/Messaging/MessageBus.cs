@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 
-namespace GoblinStronghold.Messaging
+namespace GoblinStronghold.ECS.Messaging
 {
     public class MessageBus
     {

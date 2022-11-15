@@ -21,9 +21,7 @@ namespace GoblinStronghold.Creatures.Entities
                 Palette.Black
             );
 
-            var control = new KeyboardControllable(
-                    new ControlCreature());
-            control.IsCurrentlyControlled = true;
+            var control = new PlayerControlledCreature();
 
             return context
                 .CreateEntity()

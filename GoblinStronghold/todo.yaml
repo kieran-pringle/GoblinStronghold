@@ -5,12 +5,24 @@ keepInMind:
     - Excessive iterations to find objects
     - Just query through the context
 ---
+- turnSystem:
+    - got turn system working
+    - need to hook in player to it
+    - do we maybe still need a "turn end" call back so its not blocking?
+    - yes because keyboard shenanigans
+- updateFont:
+    - primitives
+    - dice sympols
+    - items? they'll probably go
 - monsters:
     - bat
     - attacking
     - health
     - ai control
     - turns
+- dungonGeneration:
+    - something basic
+    - look at tutorials
 - adventureLog:
     - multifonts?
     - how do components interact to make fun and surprising messages?
@@ -24,9 +36,6 @@ keepInMind:
     - type object pattern?
     - some sort of way of defining animations or appearance pools
     - dice roll health?
-- dungonGeneration:
-    - something basic
-    - look at tutorials
 - input:
     - menus
     - keyboard control stack in manager
@@ -46,8 +55,9 @@ keepInMind:
     - take foreground from sprite
     - shading? dark + light maybe warm and cold? encode in an image?
 - equipment:
-    - swords
+    - weapons
     - potions
+    - armour
 - doors:
     - open and close!
     - not everyone can open
@@ -55,4 +65,6 @@ keepInMind:
 - ecsImprovements:
     - references? so we are not copying results constantly
     - properly db backed? maybe we can have fun doing it ourself with b-trees or something
-    - an entity is just a search tree into the component store?
+    - an entity is just a search tree into the component store
+- saves:
+    - dump ECS contents? somehow? might be easier to do if its a db

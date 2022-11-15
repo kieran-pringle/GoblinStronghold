@@ -1,7 +1,10 @@
-﻿using System;
-using GoblinStronghold.ECS;
+﻿using GoblinStronghold.ECS;
 using GoblinStronghold.Physics.Systems;
 
+/**
+ *  Physics module. Movement, collisions and simulating fluids if we ever do
+ *  anything like that.
+ */
 namespace GoblinStronghold.Physics
 {
     public static class Constants

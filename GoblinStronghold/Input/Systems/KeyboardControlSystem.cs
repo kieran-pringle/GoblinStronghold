@@ -4,14 +4,21 @@ using GoblinStronghold.Input.Components;
 
 namespace GoblinStronghold.Input.Systems
 {
-    public class KeyboardControlSystem : System<Keyboard>
+    public class KeyboardControlSystem : ISystem<Keyboard>
     {
+        private IContext _context;
+        IContext ISystem<Keyboard>.Context
+        {
+            get => _context;
+            set => _context = value;
+        }
+
         // TODO: stack instead of iteration for when we have submenus and things
-        public override void Handle(Keyboard message)
+        public void Handle(Keyboard message)
         {
             if (message.HasKeysPressed)
             {
-                foreach (var keyControl in Context().AllComponents<KeyboardControllable>())
+                foreach (var keyControl in _context.AllComponents<KeyboardControllable>())
                 {
                     keyControl.Content.Handle(keyControl.Owner, message);
                 }

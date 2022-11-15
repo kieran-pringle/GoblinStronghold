@@ -6,19 +6,25 @@ using GoblinStronghold.Physics.Messages;
 
 namespace GoblinStronghold.Physics.Systems
 {
-    public class MoveToSystem : System<MoveTo>
+    public class MoveToSystem : ISystem<MoveTo>
     {
+        private IContext _context;
+        IContext ISystem<MoveTo>.Context
+        {
+            get => _context;
+            set => _context = value;
+        }
+
         public MoveToSystem()
         {
         }
 
-        public override void Handle(MoveTo message)
+        public void Handle(MoveTo message)
         {
             // find all entites at position being moved to
-            var allEntitesAtPosition = Context()
+            var allEntitesAtPosition = _context
                 .AllEntitiesWithMatching<Position>(p =>
                 {
-                    
                     return p.Equals(message.NewPosition);
                 });
 

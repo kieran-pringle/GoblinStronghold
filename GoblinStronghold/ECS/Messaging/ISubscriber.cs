@@ -1,5 +1,5 @@
 ﻿using System;
-namespace GoblinStronghold.Messaging
+namespace GoblinStronghold.ECS.Messaging
 {
     public interface ISubscriber<in Message>
     {

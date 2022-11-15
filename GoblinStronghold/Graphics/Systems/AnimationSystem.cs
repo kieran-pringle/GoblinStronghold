@@ -1,22 +1,27 @@
-﻿using System;
-using System.Linq;
-using GoblinStronghold.ECS;
+﻿using GoblinStronghold.ECS;
 using GoblinStronghold.Graphics.Components;
 using GoblinStronghold.Graphics.Messages;
 
 namespace GoblinStronghold.Graphics.Systems
 {
-    public class AnimationSystem : System<RenderFrame>
+    public class AnimationSystem : ISystem<RenderFrame>
     {
+        private IContext _context;
+        IContext ISystem<RenderFrame>.Context
+        {
+            get => _context;
+            set => _context = value;
+        }
+
         public AnimationSystem()
         {
         }
 
-        public override void Handle(RenderFrame message)
+        public void Handle(RenderFrame message)
         {
-            if (message.FPS == Graphics.Constants.ANIMATION_FPS)
+            if (message.FPS == Time.Constants.ANIMATION_FPS)
             {
-                foreach (var animation in Context().AllComponents<AnimatedGlyph>())
+                foreach (var animation in _context.AllComponents<AnimatedGlyph>())
                 {
                     animation.Content.IncrementFrame();
                 }

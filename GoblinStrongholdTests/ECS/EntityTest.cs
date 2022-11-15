@@ -34,7 +34,7 @@ namespace GoblinStronghold.Tests.ECS
 
             Assert.That(strComponent.HasValue,
                 "we should be able to retrieve the string added");
-            Assert.That(strComponent.Value.Component, Is.EqualTo(str),
+            Assert.That(strComponent.Content(), Is.EqualTo(str),
                 "the retrieved component should not have empty data");
         }
 
@@ -52,8 +52,8 @@ namespace GoblinStronghold.Tests.ECS
             Assert.That(tup1Component.HasValue, "tup1Component should have a value");
             Assert.That(tup2Component.HasValue, "tup2Compoent should have a value");
 
-            Assert.That(tup1Component.Value.Component, Is.EqualTo(strStrTup));
-            Assert.That(tup2Component.Value.Component, Is.EqualTo(strIntTup));
+            Assert.That(tup1Component.Content(), Is.EqualTo(strStrTup));
+            Assert.That(tup2Component.Content(), Is.EqualTo(strIntTup));
         }
 
         [Test]
@@ -65,12 +65,12 @@ namespace GoblinStronghold.Tests.ECS
             _entity.With(tup1);
 
             Assert.That(
-                _entity.Component<(string, string)>().Value.Component,
+                _entity.Component<(string, string)>().Content(),
                 Is.EqualTo(tup1));
 
             _entity.With(tup2);
             Assert.That(
-               _entity.Component<(string, string)>().Value.Component,
+               _entity.Component<(string, string)>().Content(),
                Is.EqualTo(tup2));
         }
 

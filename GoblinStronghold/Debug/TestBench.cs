@@ -5,7 +5,6 @@ using GoblinStronghold.Input;
 using GoblinStronghold.Graphics;
 using GoblinStronghold.Graphics.Systems;
 using GoblinStronghold.Maps.Entities;
-using GoblinStronghold.Messaging;
 using GoblinStronghold.Physics.Components;
 using GoblinStronghold.Physics;
 using static GoblinStronghold.ECS.Context;
@@ -40,8 +39,9 @@ namespace GoblinStronghold.Debug
         public static void InitSystems(IContext context, RootScreen screen)
         {
             Graphics.Constants.Init(context, screen);
-            Physics.Constants.Init(context);
             Input.Constants.Init(context);
+            Physics.Constants.Init(context);
+            Time.Constants.Init(context);
         }
     }
 }
