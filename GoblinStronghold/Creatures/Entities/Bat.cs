@@ -1,4 +1,5 @@
-﻿using GoblinStronghold.Creatures.Components;
+﻿using GoblinStronghold.AI.Components;
+using GoblinStronghold.Creatures.Components;
 using GoblinStronghold.ECS;
 using GoblinStronghold.Graphics.Components;
 using GoblinStronghold.Graphics.Util;
@@ -27,8 +28,8 @@ namespace GoblinStronghold.Creatures.Entities
                 .CreateEntity()
                 .With(Creature.Instance)
                 .With(new HasGlyph(glyph))
-                .With(new Collision(Impassable.Instance));
+                .With(new Collision(Impassable.Instance))
+                .With(new DumbRandomMovement());
         }
     }
 }
-
