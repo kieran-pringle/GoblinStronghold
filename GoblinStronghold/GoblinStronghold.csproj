@@ -22,7 +22,6 @@
     <None Remove="Graphics\" />
     <None Remove="scripts\font-config\GlyphDefinitions\" />
     <None Remove="Components\DrawableComponent.ce" />
-    <None Remove="res\font\" />
     <None Remove="res\font\1-bit_16x16.font" />
     <None Remove="res\font\1-bit_16x16.png" />
     <None Remove="res\font\GlyphDefinitions\" />
@@ -59,13 +58,15 @@
     <None Remove="Log\" />
     <None Remove="Log\Systems\" />
     <None Remove="Log\Messages\" />
+    <None Remove="res\fonts\tileset\GlyphDefinitions\" />
+    <None Remove="res\fonts\tileset\1-bit_16x16.font" />
+    <None Remove="res\fonts\tileset\1-bit_16x16.png" />
+    <None Remove="res\fonts\ascii_8x16\GlyphDefinitions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
     <Folder Include="Screen\" />
     <Folder Include="Graphics\" />
-    <Folder Include="res\font\" />
-    <Folder Include="res\font\GlyphDefinitions\" />
     <Folder Include="ECS\" />
     <Folder Include="Graphics\Components\" />
     <Folder Include="Graphics\Systems\" />
@@ -98,6 +99,8 @@
     <Folder Include="Log\" />
     <Folder Include="Log\Systems\" />
     <Folder Include="Log\Messages\" />
+    <Folder Include="res\fonts\1-bit_16x16\GlyphDefinitions\" />
+    <Folder Include="res\fonts\ascii_8x16\GlyphDefinitions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">
@@ -105,20 +108,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="res\font\1-bit_16x16.font">
+    <EmbeddedResource Include="res\fonts\1-bit_16x16\1-bit_16x16.font">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="res\fonts\1-bit_16x16\1-bit_16x16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Update="res\1-bit_16x16.png">
+    <EmbeddedResource Include="res\fonts\ascii_8x16\ascii_8x16.font">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="res\1-bit_16x16.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="res\font\1-bit_16x16.png">
+    </EmbeddedResource>
+    <Content Include="res\fonts\ascii_8x16\ascii_8x16.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

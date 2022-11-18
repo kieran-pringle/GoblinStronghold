@@ -47,7 +47,7 @@ namespace GoblinStronghold
         private static void LoadGame()
         {
             // something that calls the constant class inits and populates a "map"
-            TestBench.Load(Context, Screen);
+            LoggingBench.Load(Context, Screen);
         }
 
         // TODO: can I have systems register their own messages they want at
@@ -63,6 +63,8 @@ namespace GoblinStronghold
         {
             // draw results
             Context.Send(new RenderTimePassed(args.DrawFrameDelta));
+
+            SadConsole.Console logScreen = Screen.LogConsole();
         }
     }
 }
