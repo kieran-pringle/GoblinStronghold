@@ -1,0 +1,35 @@
+﻿GlyphDefinitions:
+  - Name: dice-dim
+    StartingAt: 129
+    Prefix: dice-dim
+    Glyphs: [
+        1-left,
+        1-right,
+        2-left,
+        2-right,
+        3-left,
+        3-right,
+        4-left,
+        4-right,
+        5-left,
+        5-right,
+        6-left,
+        6-right
+    ]
+  - Name: dice-bright
+    StartingAt: 145
+    Prefix: dice-bright
+    Glyphs: [
+        1-left,
+        1-right,
+        2-left,
+        2-right,
+        3-left,
+        3-right,
+        4-left,
+        4-right,
+        5-left,
+        5-right,
+        6-left,
+        6-right
+    ]

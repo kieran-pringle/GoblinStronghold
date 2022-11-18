@@ -1,0 +1,11 @@
+---
+"$type": "SadConsole.SadFont, SadConsole"
+Name: ascii_8x16
+FilePath: ascii_8x16.png
+GlyphHeight: 16
+GlyphPadding: 0
+GlyphWidth: 8
+SolidGlyphIndex: 1
+Columns: 16
+IsSadExtended: false
+UnsupportedGlyphIndex: 63

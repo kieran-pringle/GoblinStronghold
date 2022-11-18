@@ -1,0 +1,110 @@
+{
+  "$type": "SadConsole.SadFont, SadConsole",
+  "Name": "ascii_8x16",
+  "FilePath": "ascii_8x16.png",
+  "GlyphHeight": 16,
+  "GlyphPadding": 0,
+  "GlyphWidth": 8,
+  "SolidGlyphIndex": 1,
+  "Columns": 16,
+  "IsSadExtended": false,
+  "UnsupportedGlyphIndex": 63,
+  "GlyphDefinitions": {
+    "dice-dim-1-left": {
+      "Glyph": 129,
+      "Mirror": 0
+    },
+    "dice-dim-1-right": {
+      "Glyph": 130,
+      "Mirror": 0
+    },
+    "dice-dim-2-left": {
+      "Glyph": 131,
+      "Mirror": 0
+    },
+    "dice-dim-2-right": {
+      "Glyph": 132,
+      "Mirror": 0
+    },
+    "dice-dim-3-left": {
+      "Glyph": 133,
+      "Mirror": 0
+    },
+    "dice-dim-3-right": {
+      "Glyph": 134,
+      "Mirror": 0
+    },
+    "dice-dim-4-left": {
+      "Glyph": 135,
+      "Mirror": 0
+    },
+    "dice-dim-4-right": {
+      "Glyph": 136,
+      "Mirror": 0
+    },
+    "dice-dim-5-left": {
+      "Glyph": 137,
+      "Mirror": 0
+    },
+    "dice-dim-5-right": {
+      "Glyph": 138,
+      "Mirror": 0
+    },
+    "dice-dim-6-left": {
+      "Glyph": 139,
+      "Mirror": 0
+    },
+    "dice-dim-6-right": {
+      "Glyph": 140,
+      "Mirror": 0
+    },
+    "dice-bright-1-left": {
+      "Glyph": 145,
+      "Mirror": 0
+    },
+    "dice-bright-1-right": {
+      "Glyph": 146,
+      "Mirror": 0
+    },
+    "dice-bright-2-left": {
+      "Glyph": 147,
+      "Mirror": 0
+    },
+    "dice-bright-2-right": {
+      "Glyph": 148,
+      "Mirror": 0
+    },
+    "dice-bright-3-left": {
+      "Glyph": 149,
+      "Mirror": 0
+    },
+    "dice-bright-3-right": {
+      "Glyph": 150,
+      "Mirror": 0
+    },
+    "dice-bright-4-left": {
+      "Glyph": 151,
+      "Mirror": 0
+    },
+    "dice-bright-4-right": {
+      "Glyph": 152,
+      "Mirror": 0
+    },
+    "dice-bright-5-left": {
+      "Glyph": 153,
+      "Mirror": 0
+    },
+    "dice-bright-5-right": {
+      "Glyph": 154,
+      "Mirror": 0
+    },
+    "dice-bright-6-left": {
+      "Glyph": 155,
+      "Mirror": 0
+    },
+    "dice-bright-6-right": {
+      "Glyph": 156,
+      "Mirror": 0
+    }
+  }
+}

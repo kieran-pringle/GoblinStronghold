@@ -4,26 +4,30 @@ require 'yaml'
 require 'json'
 require 'chunky_png'
 
+@fontNames = ["1-bit_16x16", "ascii_8x16"]
 
 @logLevel = 2
 
-@baseFile = "./1-bit_16x16.yaml"
-@rawPng = "./1-bit_16x16_raw.png"
-@outputDir = "./"
+@font = ARGV[0]
+unless @font
+    raise "No font passed as argument"
+    unless @fontNames.include?(@font)
+        raise "#{@font} is not a valid font. Must be one of #{@fontNames}"
+    end
+end
+
+@baseFile = "#{@font}.yaml"
+@rawPng = "#{@font}_raw.png"
 
 def indentLog(indent, msg)
     puts (" "*indent*2) + msg unless indent > @logLevel
 end
 
+Dir.chdir(@font)
 indentLog(0, "=== checking dir ===")
 unless (File.file?(@baseFile))
-    if (File.directory?("res"))
-        subdir = "res/font"
-        indentLog(1, "looks like we are at root, switching to '#{subdir}'")
-        Dir.chdir(subdir)
-    else
-        raise "Can't find font. Working dir was #{Dir.pwd}"
-    end
+    puts Dir["*"]
+    raise "Can't find font. Was looking for #{@baseFile}. Working dir was #{Dir.pwd}"
 end
 
 @files = Dir["GlyphDefinitions/*.yaml"]
@@ -93,7 +97,7 @@ indentLog(1, "loading #{@baseFile}")
 @fontDefinition = YAML.load_file(@baseFile)
 @fontDefinition["GlyphDefinitions"] = @transformedGlyphDefinitions
 
-outputFile = @outputDir + @fontDefinition["Name"] + ".font"
+outputFile = @fontDefinition["Name"] + ".font"
 indentLog(1, "writing result to #{outputFile}")
 File.write(
     outputFile,
@@ -114,7 +118,7 @@ indentLog(0, "=== processing .png ===")
     end
 end
 
-outputPngPath = @outputDir + @fontDefinition["FilePath"]
+outputPngPath = @fontDefinition["FilePath"]
 indentLog(1, "writing #{outputPngPath}")
 @image.save(outputPngPath)   
 
