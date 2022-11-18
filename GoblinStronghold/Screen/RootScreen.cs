@@ -4,6 +4,7 @@ using SadRogue.Primitives;
 using System.Collections.Generic;
 using GoblinStronghold.Screen;
 using GoblinStronghold.ECS;
+using GoblinStronghold.Input.Messages;
 using System.Diagnostics;
 using GoblinStronghold.Graphics.Util.Drawer;
 using System;
@@ -65,7 +66,10 @@ namespace GoblinStronghold
 
         public override bool ProcessKeyboard(Keyboard keyboard)
         {
-            _context.Send(keyboard);
+            if (keyboard.HasKeysPressed)
+            {
+                _context.Send(new KeysPressed(keyboard.KeysPressed));
+            }
             return true;
         }
     }

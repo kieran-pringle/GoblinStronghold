@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using SadConsole.Input;
 using GoblinStronghold.ECS;
+using GoblinStronghold.Input.Messages;
 
 namespace GoblinStronghold.Input.Components
 {
@@ -10,7 +10,7 @@ namespace GoblinStronghold.Input.Components
         /**
          * return a list of things to do on the context
          */
-        public void Handle(Entity entity, Keyboard keyboard);
+        public void Handle(Entity entity, KeysPressed keyboard);
     }
 }
 

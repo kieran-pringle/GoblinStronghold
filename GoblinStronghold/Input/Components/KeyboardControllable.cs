@@ -1,5 +1,6 @@
 ﻿using System;
 using SadConsole.Input;
+using GoblinStronghold.Input.Messages;
 using GoblinStronghold.ECS;
 
 namespace GoblinStronghold.Input.Components
@@ -15,7 +16,7 @@ namespace GoblinStronghold.Input.Components
             IsCurrentlyControlled = false;
         }
 
-        public void Handle(Entity entity, Keyboard keyboard)
+        public void Handle(Entity entity, KeysPressed keyboard)
         {
             if (IsCurrentlyControlled)
             {
