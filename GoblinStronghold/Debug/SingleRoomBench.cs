@@ -11,7 +11,10 @@ using static GoblinStronghold.ECS.Context;
 
 namespace GoblinStronghold.Debug
 {
-    public class TestBench
+    /**
+     *  Puts a player in a room with a bat for some very basic testing
+     */
+    public class SingleRoomBench
     {
         public static void Load(IContext context, RootScreen screen)
         {

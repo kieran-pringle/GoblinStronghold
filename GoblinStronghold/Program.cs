@@ -13,7 +13,7 @@ namespace GoblinStronghold
         {
             var baseRes = 7;
             // Setup the engine and create the main window.
-            Game.Create(baseRes * 16, baseRes * 9, "res/font/1-bit_16x16.font");
+            Game.Create(baseRes * 16, baseRes * 9, "res/fonts/tileset/1-bit_16x16.font");
 
             // Hook the start event so we can add consoles to the system.
             Game.Instance.OnStart = Init;
