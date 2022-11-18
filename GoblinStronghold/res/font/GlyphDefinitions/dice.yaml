@@ -1,0 +1,23 @@
+﻿GlyphDefinitions:
+  - Name: dice-dim
+    StartingAt: 320
+    Prefix: dice-dim
+    Glyphs: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,  
+    ]
+  - Name: dice-bright
+    StartingAt: 326
+    Prefix: dice-bright
+    Glyphs: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,  
+    ]

@@ -4,28 +4,29 @@ keepInMind:
     - Have the performance be shit and do things this simple way
     - Excessive iterations to find objects
     - Just query through the context
+goals:
+    - turn-based tactical squad loop: xcom
+    - all moves have a time cost: running gets you further but wait longer for next turn
+    - mouse control: easier navigation
+    - lighting and fov
+    - fun items that make a run worth it
+    - classes
+    - skill trees and leveling up
+    - inter-run progression: unlock skill tree node permenantly? like sifu
+    - better gear? gold earned usable on next run? or only if you get back?
+    - what are the levels? what are the monsters?
+    - elemental fighting: use right weapon against right monster
 ---
-- turnSystem:
-    - got turn system working
-    - need to hook in player to it
-    - do we maybe still need a "turn end" call back so its not blocking?
-    - yes because keyboard shenanigans
-- updateFont:
-    - primitives
-    - dice sympols
-    - items? they'll probably go
-- monsters:
-    - bat
-    - attacking
-    - health
-    - ai control
-    - turns
 - dungonGeneration:
     - something basic
     - look at tutorials
+- monsters:
+    - attacking
+    - health
 - adventureLog:
     - multifonts?
     - how do components interact to make fun and surprising messages?
+    - how to not log things that the player can't see
 - diceRolling:
     - parse dice strings
     - be able to log some of them out? or how good an attack was
@@ -68,3 +69,8 @@ keepInMind:
     - an entity is just a search tree into the component store
 - saves:
     - dump ECS contents? somehow? might be easier to do if its a db
+- music:
+    - something simple in pico8?
+- explosions:
+    - destroy walls!
+    - throw characters!

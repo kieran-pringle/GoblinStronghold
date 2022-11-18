@@ -550,6 +550,54 @@
       "Glyph": 159,
       "Mirror": 0
     },
+    "dice-dim-1": {
+      "Glyph": 320,
+      "Mirror": 0
+    },
+    "dice-dim-2": {
+      "Glyph": 321,
+      "Mirror": 0
+    },
+    "dice-dim-3": {
+      "Glyph": 322,
+      "Mirror": 0
+    },
+    "dice-dim-4": {
+      "Glyph": 323,
+      "Mirror": 0
+    },
+    "dice-dim-5": {
+      "Glyph": 324,
+      "Mirror": 0
+    },
+    "dice-dim-6": {
+      "Glyph": 325,
+      "Mirror": 0
+    },
+    "dice-bright-1": {
+      "Glyph": 326,
+      "Mirror": 0
+    },
+    "dice-bright-2": {
+      "Glyph": 327,
+      "Mirror": 0
+    },
+    "dice-bright-3": {
+      "Glyph": 328,
+      "Mirror": 0
+    },
+    "dice-bright-4": {
+      "Glyph": 329,
+      "Mirror": 0
+    },
+    "dice-bright-5": {
+      "Glyph": 330,
+      "Mirror": 0
+    },
+    "dice-bright-6": {
+      "Glyph": 331,
+      "Mirror": 0
+    },
     "floor-dirt-1": {
       "Glyph": 160,
       "Mirror": 0
@@ -580,6 +628,42 @@
     },
     "floor-dirt-8": {
       "Glyph": 167,
+      "Mirror": 0
+    },
+    "bottle": {
+      "Glyph": 288,
+      "Mirror": 0
+    },
+    "crate": {
+      "Glyph": 289,
+      "Mirror": 0
+    },
+    "rifle": {
+      "Glyph": 290,
+      "Mirror": 0
+    },
+    "revolver": {
+      "Glyph": 291,
+      "Mirror": 0
+    },
+    "shotgun": {
+      "Glyph": 292,
+      "Mirror": 0
+    },
+    "knife": {
+      "Glyph": 293,
+      "Mirror": 0
+    },
+    "hat": {
+      "Glyph": 294,
+      "Mirror": 0
+    },
+    "jacket": {
+      "Glyph": 295,
+      "Mirror": 0
+    },
+    "barrel": {
+      "Glyph": 296,
       "Mirror": 0
     },
     "player-basic-1": {
@@ -636,6 +720,126 @@
     },
     "filled": {
       "Glyph": 1,
+      "Mirror": 0
+    },
+    "dither-1": {
+      "Glyph": 2,
+      "Mirror": 0
+    },
+    "dither-2": {
+      "Glyph": 3,
+      "Mirror": 0
+    },
+    "dither-3": {
+      "Glyph": 4,
+      "Mirror": 0
+    },
+    "dither-4": {
+      "Glyph": 5,
+      "Mirror": 0
+    },
+    "dither-5": {
+      "Glyph": 6,
+      "Mirror": 0
+    },
+    "dither-6": {
+      "Glyph": 7,
+      "Mirror": 0
+    },
+    "diagonal-sw": {
+      "Glyph": 8,
+      "Mirror": 0
+    },
+    "diagonal-nw": {
+      "Glyph": 9,
+      "Mirror": 0
+    },
+    "diagonal-ne": {
+      "Glyph": 10,
+      "Mirror": 0
+    },
+    "diagonal-se": {
+      "Glyph": 11,
+      "Mirror": 0
+    },
+    "diagonal-corner-ne": {
+      "Glyph": 12,
+      "Mirror": 0
+    },
+    "diagonal-corner-se": {
+      "Glyph": 13,
+      "Mirror": 0
+    },
+    "diagonal-corner-sw": {
+      "Glyph": 14,
+      "Mirror": 0
+    },
+    "diagonal-corner-nw": {
+      "Glyph": 15,
+      "Mirror": 0
+    },
+    "diagonal-half-ne": {
+      "Glyph": 16,
+      "Mirror": 0
+    },
+    "diagonal-half-se": {
+      "Glyph": 17,
+      "Mirror": 0
+    },
+    "diagonal-half-sw": {
+      "Glyph": 18,
+      "Mirror": 0
+    },
+    "diagonal-half-nw": {
+      "Glyph": 19,
+      "Mirror": 0
+    },
+    "fill-vertical-7-eighths": {
+      "Glyph": 20,
+      "Mirror": 0
+    },
+    "fill-vertical-6-eighths": {
+      "Glyph": 21,
+      "Mirror": 0
+    },
+    "fill-vertical-5-eighths": {
+      "Glyph": 22,
+      "Mirror": 0
+    },
+    "fill-vertical-4-eighths": {
+      "Glyph": 23,
+      "Mirror": 0
+    },
+    "fill-horizontal-7-eighths": {
+      "Glyph": 24,
+      "Mirror": 0
+    },
+    "fill-horizontal-6-eighths": {
+      "Glyph": 25,
+      "Mirror": 0
+    },
+    "fill-horizontal-5-eighths": {
+      "Glyph": 26,
+      "Mirror": 0
+    },
+    "fill-horizontal-4-eighths": {
+      "Glyph": 27,
+      "Mirror": 0
+    },
+    "circle-corner-nw": {
+      "Glyph": 28,
+      "Mirror": 0
+    },
+    "circle-corner-sw": {
+      "Glyph": 29,
+      "Mirror": 0
+    },
+    "circle-corner-se": {
+      "Glyph": 30,
+      "Mirror": 0
+    },
+    "circle-corner-ne": {
+      "Glyph": 31,
       "Mirror": 0
     },
     "wall-brick-shaded-1": {

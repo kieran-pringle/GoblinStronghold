@@ -1,0 +1,15 @@
+﻿
+GlyphDefinitions:
+  - Name: item
+    StartingAt: 288
+    Glyphs: [
+        bottle,
+        crate,
+        rifle,
+        revolver,
+        shotgun,
+        knife,
+        hat,
+        jacket,
+        barrel
+    ]

@@ -6,3 +6,70 @@ GlyphDefinitions:
         blank,
         filled
     ]
+  - Name: dither
+    StartingAt: 2
+    Prefix: dither
+    Glyphs: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+    ]
+  - Name: diagonal
+    StartingAt: 8
+    Prefix: diagonal
+    Glyphs: [
+        sw,
+        nw,
+        ne,
+        se
+    ]
+  - Name: diagnonal-corner
+    StartingAt: 12
+    Prefix: diagonal-corner
+    Glyphs: [
+        ne,
+        se,
+        sw,
+        nw
+    ]
+  - Name: diagnonal-half
+    StartingAt: 16
+    Prefix: diagonal-half
+    Glyphs: [
+        ne,
+        se,
+        sw,
+        nw
+    ]
+  - Name: fill-vertical
+    Suffix: eighths
+    Prefix: fill-vertical
+    StartingAt: 20
+    Glyphs: [
+        7,
+        6,
+        5,
+        4
+    ]
+  - Name: fill-horizontal
+    Suffix: eighths
+    Prefix: fill-horizontal
+    StartingAt: 24
+    Glyphs: [
+        7,
+        6,
+        5,
+        4
+    ]
+  - Name: circle-corner
+    StartingAt: 28
+    Prefix: circle-corner
+    Glyphs: [
+        nw,
+        sw,
+        se,
+        ne
+    ]
