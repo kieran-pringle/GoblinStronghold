@@ -1,6 +1,7 @@
 ﻿using System;
 using GoblinStronghold.Debug;
 using GoblinStronghold.ECS;
+using GoblinStronghold.Log.Util;
 using GoblinStronghold.Graphics.Messages;
 using GoblinStronghold.Graphics.Util;
 using GoblinStronghold.Time.Messages;
@@ -17,15 +18,17 @@ namespace GoblinStronghold
 
         public static void Init()
         {
-            LoadTileset();
+            LoadTilesets();
             CreateScreen();
             AttachUpdateHandlers();
             LoadGame();
         }
 
-        private static void LoadTileset()
+        private static void LoadTilesets()
         {
             TileSet.Load(Game.Instance.DefaultFont);
+            LogFont.Load(SadConsole.Game.Instance.LoadFont(
+                    "res/fonts/ascii_8x16/ascii_8x16.font"));
         }
 
         private static void CreateScreen()

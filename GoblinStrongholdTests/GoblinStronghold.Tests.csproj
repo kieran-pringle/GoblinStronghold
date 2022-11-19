@@ -33,6 +33,8 @@
     <None Remove="Time\Systems\" />
     <None Remove="Input\" />
     <None Remove="Input\Components\" />
+    <None Remove="Log\" />
+    <None Remove="Log\Systems\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ECS\" />
@@ -42,5 +44,7 @@
     <Folder Include="Time\Systems\" />
     <Folder Include="Input\" />
     <Folder Include="Input\Components\" />
+    <Folder Include="Log\" />
+    <Folder Include="Log\Systems\" />
   </ItemGroup>
 </Project>

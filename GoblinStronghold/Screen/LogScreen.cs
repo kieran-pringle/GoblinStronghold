@@ -14,7 +14,6 @@ namespace GoblinStronghold.Screen
     {
         public LogScreen(int width, int height) : base(width, height)
         { 
-            SubConsole.Font = SadConsole.Game.Instance.LoadFont("res/fonts/ascii_8x16/ascii_8x16.font");
             SubConsole.Print(0, 0, "Log", Palette.WhiteBright);
         }
 

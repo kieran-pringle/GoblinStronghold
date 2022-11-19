@@ -3,10 +3,11 @@ using SadConsole;
 using SadRogue.Primitives;
 using Palette = GoblinStronghold.Graphics.Util.Palette;
 
-namespace GoblinStronghold.Graphics.Util
+namespace GoblinStronghold.Log.Util
 {
-    public static class TileSet
-    {
+    // TODO: somehow abstract this out? we've used it twice now
+	public static class LogFont
+	{
         private static IFont _font;
 
         public static void Load(IFont font)
@@ -42,8 +43,8 @@ namespace GoblinStronghold.Graphics.Util
             }
 
             return new ColoredGlyph(
-                (Color) foreground,
-                (Color) background,
+                (Color)foreground,
+                (Color)background,
                 GlyphIndex(name),
                 mirror,
                 isVisible,
@@ -52,4 +53,3 @@ namespace GoblinStronghold.Graphics.Util
         }
     }
 }
-

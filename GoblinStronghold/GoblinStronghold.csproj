@@ -62,6 +62,7 @@
     <None Remove="res\fonts\tileset\1-bit_16x16.font" />
     <None Remove="res\fonts\tileset\1-bit_16x16.png" />
     <None Remove="res\fonts\ascii_8x16\GlyphDefinitions\" />
+    <None Remove="Log\Util\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="res\" />
@@ -101,6 +102,7 @@
     <Folder Include="Log\Messages\" />
     <Folder Include="res\fonts\1-bit_16x16\GlyphDefinitions\" />
     <Folder Include="res\fonts\ascii_8x16\GlyphDefinitions\" />
+    <Folder Include="Log\Util\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Screen\RootScreen.cs">

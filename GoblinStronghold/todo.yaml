@@ -17,20 +17,23 @@ goals:
     - what are the levels? what are the monsters?
     - elemental fighting: use right weapon against right monster
 ---
-- adventureLog:
-    - multifonts?
-    - how do components interact to make fun and surprising messages?
-    - scrolling logs at side
-    - how to not log things that the player can't see
+refactors:
+    - something nicer about screens and sub surfaces and such in time for menus
+    - rename! only going to get worse with time if we aren't making GoblinStronghold
+    - font loading and management. Is there a way to pull it into the `Constants`?
+---
 - dungonGeneration:
     - something basic
     - look at tutorials
+- adventureLog:
+    - how to not log things that the player can't see
+    - how to build log messages from entities doing things
 - monsters:
+    - pathfinding
     - attacking
     - health
 - diceRolling:
     - parse dice strings
-    - be able to log some of them out? or how good an attack was
 - yamlEntityConfig:
     - iterate over folders
     - some sort of manifest as we will no longer know the class at runtime
@@ -75,3 +78,4 @@ goals:
 - explosions:
     - destroy walls!
     - throw characters!
+    - damage based on how close and collision speed
